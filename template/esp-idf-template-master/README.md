@@ -1,4 +1,4 @@
-ESP-IDF template app
+ESP-IDF template APP
 ====================
 
 This template is from [espressif/esp-idf-template](https://github.com/espressif/esp-idf-template).
