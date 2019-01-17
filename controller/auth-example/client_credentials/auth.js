@@ -2,7 +2,7 @@
 // 1. Using the Client Credentials Flow get an authentication token
 
 
-const request = require("request");
+const request = require("request-promise");
 
 var client_id = '2722912b2a164140bc1ba1919913f5cd'; // Application ID
 var client_secret = '49929317ad3e4d0a87624f29525acd43'; // Application Secret (May need updating)
