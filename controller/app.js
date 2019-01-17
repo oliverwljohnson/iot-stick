@@ -1,6 +1,7 @@
 // A Simple application that interacts with the Spotify Web API
 
 var SpotifyWebApi = require('spotify-web-api-node');
+var fs = require('fs');
 
 // Instantiating the new Spotify API (It automatically does the authentication process)
 // Instantiation and Client Credentials authentication from thelinmichael/spotify-web-api-node examples
@@ -34,18 +35,21 @@ function setCredentials(){
 // Want to find a better way of ensuring credentials are set before 
 async function spotifyApiCalls(){
     await setCredentials();
-    spotifyApi.getAvailableGenreSeeds().then(
-        function(data) {
-          console.log('Genre Seeds', data);
-        },
-        function(err) {
-          console.error(err);
-        }
-      );
+    let rawdata = fs.readFileSync('example-data.json');  
+    let reccomendOptions = JSON.parse(rawdata);  
+    console.log(reccomendOptions);
+    spotifyApi.getRecommendations(reccomendOptions).then(
+            function(data) {
+                console.log('Genre Seeds', data.body);
+              },
+              function(err) {
+                console.error(err);
+              }
+        );
 }
 
-
 spotifyApiCalls();
+
 
 // 1. Read in data from file (Perhaps it is better to implement it as a database with update function)
 // 2. Process the data down into a seed object

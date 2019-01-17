@@ -1,0 +1,6 @@
+{
+    "seed_genres" : ["pop", "electronic", "chill", "dubstep", "jazz"],
+    "min_danceability" : 0.7,
+    "max_popularity" : 50,
+    "min_valence" : 0.6
+}
