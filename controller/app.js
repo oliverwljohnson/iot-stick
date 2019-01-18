@@ -39,10 +39,10 @@ async function spotifyApiCalls(){
     console.log(reccomendOptions);
     spotifyApi.getRecommendations(reccomendOptions).then(
             function(data) {
-              console.log(data.body.tracks);
-              fs.writeFile("reccomendations.json", JSON.stringify(data.body.tracks,null,2), (err) => {
+              console.log(data.body);
+              fs.writeFile("reccomendations.json", JSON.stringify(data.body,null,2), (err) => {
                 if (err) throw err;
-                console.log('file saved');
+                console.log('Spotify reccomendations from input '+ reccomendOptions + '\n saved to file \"reccomendations.json\"');
               });
               },
             function(err) {
