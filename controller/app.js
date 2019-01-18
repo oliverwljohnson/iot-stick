@@ -40,10 +40,14 @@ async function spotifyApiCalls(){
     console.log(reccomendOptions);
     spotifyApi.getRecommendations(reccomendOptions).then(
             function(data) {
-                console.log('Genre Seeds', data.body);
+              console.log(data.body.tracks);
+              fs.writeFile("reccomendations.json", JSON.stringify(data.body.tracks,null,2), (err) => {
+                if (err) throw err;
+                console.log('file saved');
+              });
               },
-              function(err) {
-                console.error(err);
+            function(err) {
+              console.error(err);
               }
         );
 }
