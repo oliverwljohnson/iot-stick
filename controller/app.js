@@ -35,8 +35,7 @@ function setCredentials(){
 // Want to find a better way of ensuring credentials are set before 
 async function spotifyApiCalls(){
     await setCredentials();
-    let rawdata = fs.readFileSync('example-data.json');  
-    let reccomendOptions = JSON.parse(rawdata);  
+    let reccomendOptions = JSON.parse(fs.readFileSync('seed-options.json'));  
     console.log(reccomendOptions);
     spotifyApi.getRecommendations(reccomendOptions).then(
             function(data) {
