@@ -3,7 +3,7 @@ asio/asio/src/asio.o: \
  /Users/davidhorsley/esp/esp-idf/components/asio/asio/asio/include/asio/impl/src.hpp \
  /Users/davidhorsley/esp/esp-idf/components/asio/asio/asio/include/asio/detail/config.hpp \
  /Users/davidhorsley/esp/esp-idf/components/asio/port/include/esp_asio_config.h \
- /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_provisioner/build/include/sdkconfig.h \
+ /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/include/sdkconfig.h \
  /Users/davidhorsley/esp/esp-idf/components/asio/asio/asio/include/asio/impl/error.ipp \
  /Users/davidhorsley/esp/esp-idf/components/asio/asio/asio/include/asio/error.hpp \
  /Users/davidhorsley/esp/esp-idf/components/asio/asio/asio/include/asio/error_code.hpp \
@@ -323,7 +323,7 @@ asio/asio/src/asio.o: \
 
 /Users/davidhorsley/esp/esp-idf/components/asio/port/include/esp_asio_config.h:
 
-/Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_provisioner/build/include/sdkconfig.h:
+/Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/include/sdkconfig.h:
 
 /Users/davidhorsley/esp/esp-idf/components/asio/asio/asio/include/asio/impl/error.ipp:
 

@@ -11,7 +11,7 @@ library/ssl_cert.o: \
  /Users/davidhorsley/esp/esp-idf/components/openssl/include/internal/ssl_stack.h \
  /Users/davidhorsley/esp/esp-idf/components/openssl/include/internal/ssl_dbg.h \
  /Users/davidhorsley/esp/esp-idf/components/openssl/include/platform/ssl_opt.h \
- /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_provisioner/build/include/sdkconfig.h \
+ /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/include/sdkconfig.h \
  /Users/davidhorsley/esp/esp-idf/components/openssl/include/platform/ssl_port.h \
  /Users/davidhorsley/esp/esp-idf/components/esp32/include/esp_types.h \
  /Users/davidhorsley/esp/esp-idf/components/newlib/include/sys/cdefs.h \
@@ -67,7 +67,7 @@ library/ssl_cert.o: \
 
 /Users/davidhorsley/esp/esp-idf/components/openssl/include/platform/ssl_opt.h:
 
-/Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_provisioner/build/include/sdkconfig.h:
+/Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/include/sdkconfig.h:
 
 /Users/davidhorsley/esp/esp-idf/components/openssl/include/platform/ssl_port.h:
 

@@ -10,7 +10,7 @@ src/esp_image_format.o: \
  /Users/davidhorsley/esp/esp-idf/components/esp32/include/esp_err.h \
  /Users/davidhorsley/esp/esp-idf/components/bootloader_support/include/esp_flash_partitions.h \
  /Users/davidhorsley/esp/esp-idf/components/esp32/include/esp_flash_data_types.h \
- /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_provisioner/build/bootloader/../include/sdkconfig.h \
+ /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/../include/sdkconfig.h \
  /Users/davidhorsley/esp/esp-idf/components/bootloader_support/include/esp_secure_boot.h \
  /Users/davidhorsley/esp/esp-idf/components/soc/esp32/include/soc/efuse_reg.h \
  /Users/davidhorsley/esp/esp-idf/components/soc/esp32/include/soc/soc.h \
@@ -42,7 +42,7 @@ src/esp_image_format.o: \
 
 /Users/davidhorsley/esp/esp-idf/components/esp32/include/esp_flash_data_types.h:
 
-/Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_provisioner/build/bootloader/../include/sdkconfig.h:
+/Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/../include/sdkconfig.h:
 
 /Users/davidhorsley/esp/esp-idf/components/bootloader_support/include/esp_secure_boot.h:
 

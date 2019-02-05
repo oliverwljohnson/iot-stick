@@ -1101,7 +1101,7 @@ END GROUP
  *(.jcr)
                 0x000000003fff001c                _data_end = ABSOLUTE (.)
 
-.dram0.rodata   0x000000003fff001c     0x1724
+.dram0.rodata   0x000000003fff001c     0x171c
                 0x000000003fff001c                _rodata_start = ABSOLUTE (.)
  *(.rodata)
  .rodata        0x000000003fff001c       0x14 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_init.o)
@@ -1111,87 +1111,87 @@ END GROUP
                 0x000000003fff0038       0x3b /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/main/libmain.a(bootloader_start.o)
  *fill*         0x000000003fff0073        0x1 
  .rodata.str1.4
-                0x000000003fff0074      0x3ca /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_init.o)
-                                        0x3d2 (size before relaxing)
- *fill*         0x000000003fff043e        0x2 
+                0x000000003fff0074      0x3c2 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_init.o)
+                                        0x3ca (size before relaxing)
+ *fill*         0x000000003fff0436        0x2 
  .rodata.__func__$4370
-                0x000000003fff0440       0x10 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_init.o)
+                0x000000003fff0438       0x10 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_init.o)
  .rodata.str1.4
-                0x000000003fff0450      0x5a5 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_utility.o)
+                0x000000003fff0448      0x5a5 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_utility.o)
                                         0x5ad (size before relaxing)
- *fill*         0x000000003fff09f5        0x3 
+ *fill*         0x000000003fff09ed        0x3 
  .rodata.str1.4
-                0x000000003fff09f8      0x47a /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(esp_image_format.o)
+                0x000000003fff09f0      0x47a /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(esp_image_format.o)
                                         0x4ba (size before relaxing)
- *fill*         0x000000003fff0e72        0x2 
+ *fill*         0x000000003fff0e6a        0x2 
  .rodata.str1.4
-                0x000000003fff0e74      0x163 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(flash_partitions.o)
- *fill*         0x000000003fff0fd7        0x1 
+                0x000000003fff0e6c      0x163 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(flash_partitions.o)
+ *fill*         0x000000003fff0fcf        0x1 
  .rodata.str1.4
-                0x000000003fff0fd8      0x28e /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_flash.o)
- *fill*         0x000000003fff1266        0x2 
+                0x000000003fff0fd0      0x28e /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_flash.o)
+ *fill*         0x000000003fff125e        0x2 
  .rodata.str1.4
-                0x000000003fff1268       0xd0 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_sha.o)
+                0x000000003fff1260       0xd0 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_sha.o)
  .rodata.padding$3883
-                0x000000003fff1338       0x40 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_sha.o)
+                0x000000003fff1330       0x40 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_sha.o)
  .rodata.__func__$3879
-                0x000000003fff1378       0x19 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_sha.o)
- *fill*         0x000000003fff1391        0x3 
+                0x000000003fff1370       0x19 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_sha.o)
+ *fill*         0x000000003fff1389        0x3 
  .rodata.__func__$3859
-                0x000000003fff1394       0x17 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_sha.o)
- *fill*         0x000000003fff13ab        0x1 
+                0x000000003fff138c       0x17 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_sha.o)
+ *fill*         0x000000003fff13a3        0x1 
  .rodata.str1.4
-                0x000000003fff13ac      0x259 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/soc/libsoc.a(rtc_clk.o)
- *fill*         0x000000003fff1605        0x3 
+                0x000000003fff13a4      0x259 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/soc/libsoc.a(rtc_clk.o)
+ *fill*         0x000000003fff15fd        0x3 
  .rodata.rtc_clk_xtal_freq_estimate
-                0x000000003fff1608       0x64 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x000000003fff1600       0x64 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/soc/libsoc.a(rtc_clk.o)
  .rodata.rtc_clk_cpu_freq_value
-                0x000000003fff166c       0x14 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                0x000000003fff1664       0x14 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/soc/libsoc.a(rtc_clk.o)
  .rodata.__func__$2844
-                0x000000003fff1680       0x17 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/soc/libsoc.a(rtc_clk.o)
- *fill*         0x000000003fff1697        0x1 
+                0x000000003fff1678       0x17 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/soc/libsoc.a(rtc_clk.o)
+ *fill*         0x000000003fff168f        0x1 
  .rodata.__func__$2829
-                0x000000003fff1698       0x15 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/soc/libsoc.a(rtc_clk.o)
- *fill*         0x000000003fff16ad        0x3 
+                0x000000003fff1690       0x15 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/soc/libsoc.a(rtc_clk.o)
+ *fill*         0x000000003fff16a5        0x3 
  .rodata.str1.4
-                0x000000003fff16b0       0x78 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/soc/libsoc.a(rtc_time.o)
+                0x000000003fff16a8       0x78 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/soc/libsoc.a(rtc_time.o)
  .rodata.__func__$1789
-                0x000000003fff1728       0x15 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/soc/libsoc.a(rtc_time.o)
+                0x000000003fff1720       0x15 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/soc/libsoc.a(rtc_time.o)
  *(.gnu.linkonce.r.*)
  *(.rodata1)
-                0x000000003fff173d                __XT_EXCEPTION_TABLE_ = ABSOLUTE (.)
+                0x000000003fff1735                __XT_EXCEPTION_TABLE_ = ABSOLUTE (.)
  *(.xt_except_table)
  *(.gcc_except_table)
  *(.gnu.linkonce.e.*)
  *(.gnu.version_r)
  *(.eh_frame)
-                0x000000003fff1740                . = ((. + 0x3) & 0xfffffffffffffffc)
- *fill*         0x000000003fff173d        0x3 
-                0x000000003fff1740                __init_array_start = ABSOLUTE (.)
+                0x000000003fff1738                . = ((. + 0x3) & 0xfffffffffffffffc)
+ *fill*         0x000000003fff1735        0x3 
+                0x000000003fff1738                __init_array_start = ABSOLUTE (.)
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT(.ctors.*))
  *(.ctors)
-                0x000000003fff1740                __init_array_end = ABSOLUTE (.)
+                0x000000003fff1738                __init_array_end = ABSOLUTE (.)
  *crtbegin.o(.dtors)
  *(EXCLUDE_FILE(*crtend.o) .dtors)
  *(SORT(.dtors.*))
  *(.dtors)
-                0x000000003fff1740                __XT_EXCEPTION_DESCS_ = ABSOLUTE (.)
+                0x000000003fff1738                __XT_EXCEPTION_DESCS_ = ABSOLUTE (.)
  *(.xt_except_desc)
  *(.gnu.linkonce.h.*)
-                0x000000003fff1740                __XT_EXCEPTION_DESCS_END__ = ABSOLUTE (.)
+                0x000000003fff1738                __XT_EXCEPTION_DESCS_END__ = ABSOLUTE (.)
  *(.xt_except_desc_end)
  *(.dynamic)
  *(.gnu.version_d)
-                0x000000003fff1740                _rodata_end = ABSOLUTE (.)
-                0x000000003fff1740                _lit4_start = ABSOLUTE (.)
+                0x000000003fff1738                _rodata_end = ABSOLUTE (.)
+                0x000000003fff1738                _lit4_start = ABSOLUTE (.)
  *(*.lit4)
  *(.lit4.*)
  *(.gnu.linkonce.lit4.*)
-                0x000000003fff1740                _lit4_end = ABSOLUTE (.)
-                0x000000003fff1740                . = ALIGN (0x4)
-                0x000000003fff1740                _heap_start = ABSOLUTE (.)
+                0x000000003fff1738                _lit4_end = ABSOLUTE (.)
+                0x000000003fff1738                . = ALIGN (0x4)
+                0x000000003fff1738                _heap_start = ABSOLUTE (.)
                 [!provide]                        PROVIDE (abort, 0x4000bba4)
                 [!provide]                        PROVIDE (Add2SelfBigHex256, 0x40015b7c)
                 [!provide]                        PROVIDE (AddBigHex256, 0x40015b28)
@@ -3109,46 +3109,46 @@ OUTPUT(/Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-featu
  .debug_line    0x00000000000067a5       0x90 /Users/davidhorsley/esp/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_bswapsi2.o)
  .debug_line    0x0000000000006835      0x195 /Users/davidhorsley/esp/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_udivdi3.o)
 
-.debug_str      0x0000000000000000     0x448d
- .debug_str     0x0000000000000000      0x376 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/main/libmain.a(bootloader_start.o)
-                                        0x3da (size before relaxing)
- .debug_str     0x0000000000000376      0x8e7 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_init.o)
-                                        0xac8 (size before relaxing)
- .debug_str     0x0000000000000c5d       0xaf /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_random.o)
-                                        0x2ab (size before relaxing)
- .debug_str     0x0000000000000d0c      0x320 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_utility.o)
-                                        0x82d (size before relaxing)
- .debug_str     0x000000000000102c      0x30f /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(esp_image_format.o)
-                                        0x9fd (size before relaxing)
- .debug_str     0x000000000000133b       0xae /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(flash_partitions.o)
-                                        0x438 (size before relaxing)
- .debug_str     0x00000000000013e9     0x1886 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(flash_qio_mode.o)
-                                       0x1c2d (size before relaxing)
- .debug_str     0x0000000000002c6f      0x23a /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_clock.o)
+.debug_str      0x0000000000000000     0x44a1
+ .debug_str     0x0000000000000000      0x37b /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/main/libmain.a(bootloader_start.o)
+                                        0x3df (size before relaxing)
+ .debug_str     0x000000000000037b      0x8ec /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_init.o)
+                                        0xacd (size before relaxing)
+ .debug_str     0x0000000000000c67       0xaf /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_random.o)
+                                        0x2b0 (size before relaxing)
+ .debug_str     0x0000000000000d16      0x320 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_utility.o)
+                                        0x832 (size before relaxing)
+ .debug_str     0x0000000000001036      0x30f /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(esp_image_format.o)
+                                        0xa02 (size before relaxing)
+ .debug_str     0x0000000000001345       0xae /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(flash_partitions.o)
+                                        0x43d (size before relaxing)
+ .debug_str     0x00000000000013f3     0x1886 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(flash_qio_mode.o)
+                                       0x1c32 (size before relaxing)
+ .debug_str     0x0000000000002c79      0x23a /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_clock.o)
                                         0x38e (size before relaxing)
- .debug_str     0x0000000000002ea9      0x2b0 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_common.o)
-                                        0x80a (size before relaxing)
- .debug_str     0x0000000000003159      0x21f /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_flash.o)
-                                        0x5eb (size before relaxing)
- .debug_str     0x0000000000003378      0x111 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_sha.o)
-                                        0x3cd (size before relaxing)
- .debug_str     0x0000000000003489      0x201 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/log/liblog.a(log.o)
-                                        0x3bd (size before relaxing)
- .debug_str     0x000000000000368a      0x36f /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/spi_flash/libspi_flash.a(spi_flash_rom_patch.o)
+ .debug_str     0x0000000000002eb3      0x2b0 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_common.o)
+                                        0x80f (size before relaxing)
+ .debug_str     0x0000000000003163      0x21f /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_flash.o)
+                                        0x5f0 (size before relaxing)
+ .debug_str     0x0000000000003382      0x111 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/bootloader_support/libbootloader_support.a(bootloader_sha.o)
+                                        0x3d2 (size before relaxing)
+ .debug_str     0x0000000000003493      0x206 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/log/liblog.a(log.o)
+                                        0x3c2 (size before relaxing)
+ .debug_str     0x0000000000003699      0x36f /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/spi_flash/libspi_flash.a(spi_flash_rom_patch.o)
                                         0x754 (size before relaxing)
- .debug_str     0x00000000000039f9       0x73 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/soc/libsoc.a(cpu_util.o)
+ .debug_str     0x0000000000003a08       0x73 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/soc/libsoc.a(cpu_util.o)
                                         0x17f (size before relaxing)
- .debug_str     0x0000000000003a6c       0x43 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/soc/libsoc.a(gpio_periph.o)
+ .debug_str     0x0000000000003a7b       0x43 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/soc/libsoc.a(gpio_periph.o)
                                         0x149 (size before relaxing)
- .debug_str     0x0000000000003aaf      0x5aa /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/soc/libsoc.a(rtc_clk.o)
-                                        0x9db (size before relaxing)
- .debug_str     0x0000000000004059       0xc3 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/soc/libsoc.a(rtc_init.o)
+ .debug_str     0x0000000000003abe      0x5af /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/soc/libsoc.a(rtc_clk.o)
+                                        0x9e0 (size before relaxing)
+ .debug_str     0x000000000000406d       0xc3 /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/soc/libsoc.a(rtc_init.o)
                                         0x248 (size before relaxing)
- .debug_str     0x000000000000411c      0x14f /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/soc/libsoc.a(rtc_time.o)
+ .debug_str     0x0000000000004130      0x14f /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/soc/libsoc.a(rtc_time.o)
                                         0x3b6 (size before relaxing)
- .debug_str     0x000000000000426b      0x146 /Users/davidhorsley/esp/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_bswapsi2.o)
+ .debug_str     0x000000000000427f      0x146 /Users/davidhorsley/esp/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_bswapsi2.o)
                                         0x1ec (size before relaxing)
- .debug_str     0x00000000000043b1       0xdc /Users/davidhorsley/esp/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_udivdi3.o)
+ .debug_str     0x00000000000043c5       0xdc /Users/davidhorsley/esp/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/libgcc.a(_udivdi3.o)
                                         0x266 (size before relaxing)
 
 .comment        0x0000000000000000       0x3a

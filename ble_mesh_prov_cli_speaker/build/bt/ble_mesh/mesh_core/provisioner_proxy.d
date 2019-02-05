@@ -18,7 +18,7 @@ ble_mesh/mesh_core/provisioner_proxy.o: \
  /Users/davidhorsley/esp/esp-idf/components/newlib/platform_include/errno.h \
  /Users/davidhorsley/esp/esp-idf/components/newlib/include/errno.h \
  /Users/davidhorsley/esp/esp-idf/components/newlib/include/sys/errno.h \
- /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_provisioner/build/include/sdkconfig.h \
+ /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/include/sdkconfig.h \
  /Users/davidhorsley/esp/esp-idf/components/bt/ble_mesh/mesh_core/include/mesh_bearer_adapt.h \
  /Users/davidhorsley/esp/esp-idf/components/bt/ble_mesh/mesh_core/include/mesh_types.h \
  /Users/davidhorsley/esp/esp-idf/components/newlib/include/stdint.h \
@@ -150,7 +150,7 @@ ble_mesh/mesh_core/provisioner_proxy.o: \
 
 /Users/davidhorsley/esp/esp-idf/components/newlib/include/sys/errno.h:
 
-/Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_provisioner/build/include/sdkconfig.h:
+/Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/include/sdkconfig.h:
 
 /Users/davidhorsley/esp/esp-idf/components/bt/ble_mesh/mesh_core/include/mesh_bearer_adapt.h:
 

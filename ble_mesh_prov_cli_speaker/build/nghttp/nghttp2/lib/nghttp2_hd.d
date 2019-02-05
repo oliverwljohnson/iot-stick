@@ -36,7 +36,7 @@ nghttp2/lib/nghttp2_hd.o: \
  /Users/davidhorsley/esp/esp-idf/components/nghttp/nghttp2/lib/nghttp2_mem.h \
  /Users/davidhorsley/esp/esp-idf/components/nghttp/nghttp2/lib/nghttp2_rcbuf.h \
  /Users/davidhorsley/esp/esp-idf/components/newlib/platform_include/assert.h \
- /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_provisioner/build/include/sdkconfig.h \
+ /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/include/sdkconfig.h \
  /Users/davidhorsley/esp/esp-idf/components/newlib/include/assert.h \
  /Users/davidhorsley/esp/esp-idf/components/nghttp/nghttp2/lib/nghttp2_helper.h \
  /Users/davidhorsley/esp/esp-idf/components/nghttp/nghttp2/lib/nghttp2_debug.h
@@ -113,7 +113,7 @@ nghttp2/lib/nghttp2_hd.o: \
 
 /Users/davidhorsley/esp/esp-idf/components/newlib/platform_include/assert.h:
 
-/Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_provisioner/build/include/sdkconfig.h:
+/Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/include/sdkconfig.h:
 
 /Users/davidhorsley/esp/esp-idf/components/newlib/include/assert.h:
 

@@ -2,7 +2,7 @@ bluedroid/btc/profile/std/hf_client/bta_hf_client_co.o: \
  /Users/davidhorsley/esp/esp-idf/components/bt/bluedroid/btc/profile/std/hf_client/bta_hf_client_co.c \
  /Users/davidhorsley/esp/esp-idf/components/bt/bluedroid/bta/include/bta/bta_hf_client_co.h \
  /Users/davidhorsley/esp/esp-idf/components/bt/bluedroid/common/include/common/bt_target.h \
- /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_provisioner/build/include/sdkconfig.h \
+ /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/include/sdkconfig.h \
  /Users/davidhorsley/esp/esp-idf/components/bt/bluedroid/stack/include/stack/bt_types.h \
  /Users/davidhorsley/esp/esp-idf/components/newlib/include/stdint.h \
  /Users/davidhorsley/esp/esp-idf/components/newlib/include/machine/_default_types.h \
@@ -114,7 +114,7 @@ bluedroid/btc/profile/std/hf_client/bta_hf_client_co.o: \
 
 /Users/davidhorsley/esp/esp-idf/components/bt/bluedroid/common/include/common/bt_target.h:
 
-/Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_provisioner/build/include/sdkconfig.h:
+/Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/include/sdkconfig.h:
 
 /Users/davidhorsley/esp/esp-idf/components/bt/bluedroid/stack/include/stack/bt_types.h:
 

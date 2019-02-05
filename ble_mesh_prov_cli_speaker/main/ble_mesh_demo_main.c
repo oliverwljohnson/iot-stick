@@ -50,6 +50,7 @@
 
 static uint8_t dev_uuid[16];
 typedef enum {EDM, Classical, Rock, None} GENRE; // Type for music selections 
+static esp_ble_mesh_dev_role_t my_role = MSG_ROLE; // 0 or PROVISIONER
 
 typedef struct {
     uint8_t  uuid[16]; // Univerally Unique ID
@@ -79,7 +80,11 @@ static struct esp_ble_mesh_key {
 static esp_ble_mesh_client_t config_client; // Configuration Client
 // static esp_ble_mesh_client_t onoff_client; // OnOff Client
 static esp_ble_mesh_client_t genre_client; // Music genre Client
-static esp_ble_mesh_model_pub_t genre_model_pub; // Music genre model publication type
+static esp_ble_mesh_model_pub_t genre_model_pub = {
+    .msg = NET_BUF_SIMPLE(2 + 1),
+    .update = NULL,
+    .dev_role = MSG_ROLE,
+}; // Music genre model publication type
 
 // Mesh Config Server Model Context
 static esp_ble_mesh_cfg_srv_t config_server = {
@@ -361,7 +366,7 @@ static void esp_ble_mesh_prov_cb(esp_ble_mesh_prov_cb_event_t event,
                 ESP_LOGE(TAG, "Get node name failed");
                 return;
             }
-            ESP_LOGI(TAG, "Node %d name is: %s", param->provisioner_set_node_name_comp.node_index, name);
+            ESP_LOGI(TAG, "(Set Name) Node %d name is: %s", param->provisioner_set_node_name_comp.node_index, name);
         }
         break;
     }
@@ -477,10 +482,10 @@ static void esp_ble_mesh_config_client_cb(esp_ble_mesh_cfg_client_cb_event_t eve
         }
         case ESP_BLE_MESH_MODEL_OP_MODEL_APP_BIND: {
             esp_ble_mesh_generic_client_get_state_t get_state = {0};
-            esp_ble_mesh_set_msg_common(&common, node, genre_client.model, ESP_BLE_MESH_MODEL_OP_GEN_USER_PROPERTIES_GET);
+            esp_ble_mesh_set_msg_common(&common, node, &genre_client.model, ESP_BLE_MESH_MODEL_OP_GEN_USER_PROPERTY_GET);
             err = esp_ble_mesh_generic_client_get_state(&common, &get_state);
             if (err) {
-                ESP_LOGE(TAG, "%s: Generic User Properties Get failed", __func__);
+                ESP_LOGE(TAG, "%s: Model Op App Bind Failed..", __func__);
                 return;
             }
             break;
@@ -583,7 +588,7 @@ static void esp_ble_mesh_generic_client_cb(esp_ble_mesh_generic_client_cb_event_
     switch (event) {
     case ESP_BLE_MESH_GENERIC_CLIENT_GET_STATE_EVT:
         switch (opcode) {
-            case ESP_BLE_MESH_MODEL_OP_GEN_USER_PROPERTIES_GET: { // User prop get
+            case ESP_BLE_MESH_MODEL_OP_GEN_USER_PROPERTY_GET: { // User prop get
                 esp_ble_mesh_generic_client_set_state_t set_state = {0};
                 //node->onoff = param->status_cb.onoff_status.present_onoff;
                 node->genre = (GENRE) param->status_cb.user_property_status.property_value->data; // just copied the line above
@@ -735,6 +740,37 @@ static esp_err_t bluetooth_init(void)
     return ret;
 }
 
+void app_pub_msg_test(void)
+{
+    esp_err_t error;
+
+    enum genre {EDM, classical, rock}; // Defines the music genre selected by the user/glowstick
+    enum genre my_selection = EDM;
+    uint8_t *my_data = (int) my_selection;
+    esp_ble_mesh_model_t *my_model = &root_models[2];
+
+
+    /*
+    user_prop_cli_pub.model = root_models[1];
+    user_prop_cli_pub.publish_addr = 0xFFFF; // All nodes (virtual addr.)
+    user_prop_cli_pub.app_idx = node_app_idx; // App Key Index
+    user_prop_cli_pub.ttl = DEFAULT_TTL; // time to live
+    */
+
+    error = esp_ble_mesh_model_publish(my_model, ESP_BLE_MESH_MODEL_OP_GEN_USER_PROPERTY_GET, sizeof(my_data), my_data, ROLE_NODE);
+    //error = esp_ble_mesh_model_publish(&genre_model_pub.model, ESP_BLE_MESH_MODEL_OP_GEN_USER_PROPERTY_GET, genre_model_pub.msg->len, &genre_model_pub.msg->data[0], my_role);
+    if (error) {
+        //ESP_LOGE(TAG, " message publication failed"); // debugging
+        ESP_LOGE(TAG, "Msg publication failed (err %x)", error);
+        //esp_err_to_name_r(error);
+    }
+    
+    else
+    {
+        ESP_LOGE(TAG, "%s msg publication successful!", __func__);
+    }
+}
+
 /*
 * Main program entry point
 */
@@ -757,4 +793,21 @@ void app_main(void)
     if (err) {
         ESP_LOGE(TAG, "Bluetooth mesh init failed (err %d)", err);
     }
+
+    // esp_ble_mesh_generic_client_cb(esp_ble_mesh_generic_client_cb_event_t event,
+       // esp_ble_mesh_generic_client_cb_param_t *param)
+    // esp_ble_mesh_generic_client_cb_param_t my_params;
+    // esp_ble_mesh_generic_cb(esp_ble_mesh_gen_user_property_get_t, )
+
+    // genre_model_pub.msg = 
+    ESP_LOGI(TAG, "Starting loop..");
+    int count = 0;
+    while(1){
+        count++;
+        if (count > 100000000){
+            count = 0;
+            app_pub_msg_test(); // publish msg
+        }
+    }
+
 }

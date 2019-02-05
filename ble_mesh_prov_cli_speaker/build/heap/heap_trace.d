@@ -19,7 +19,7 @@ heap_trace.o: \
  /Users/davidhorsley/esp/esp-idf/components/newlib/include/sys/syslimits.h \
  /Users/davidhorsley/esp/esp-idf/components/newlib/include/machine/endian.h \
  /Users/davidhorsley/esp/esp-idf/components/newlib/include/machine/param.h \
- /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_provisioner/build/include/sdkconfig.h \
+ /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/include/sdkconfig.h \
  /Users/davidhorsley/esp/esp-idf/components/heap/include/esp_heap_trace.h \
  /Users/davidhorsley/esp/esp-idf/components/newlib/include/stdint.h \
  /Users/davidhorsley/esp/esp-idf/components/newlib/include/sys/_intsup.h \
@@ -127,7 +127,7 @@ heap_trace.o: \
 
 /Users/davidhorsley/esp/esp-idf/components/newlib/include/machine/param.h:
 
-/Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_provisioner/build/include/sdkconfig.h:
+/Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/include/sdkconfig.h:
 
 /Users/davidhorsley/esp/esp-idf/components/heap/include/esp_heap_trace.h:
 

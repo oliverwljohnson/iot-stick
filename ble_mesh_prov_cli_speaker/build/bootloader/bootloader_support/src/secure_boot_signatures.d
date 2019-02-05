@@ -1,6 +1,6 @@
 src/secure_boot_signatures.o: \
  /Users/davidhorsley/esp/esp-idf/components/bootloader_support/src/secure_boot_signatures.c \
- /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_provisioner/build/bootloader/../include/sdkconfig.h \
+ /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/../include/sdkconfig.h \
  /Users/davidhorsley/esp/esp-idf/components/bootloader_support/include_bootloader/bootloader_flash.h \
  /Users/davidhorsley/esp/esp-idf/components/esp32/include/esp_err.h \
  /Users/davidhorsley/esp/esp-idf/components/spi_flash/include/esp_spi_flash.h \
@@ -19,7 +19,7 @@ src/secure_boot_signatures.o: \
  /Users/davidhorsley/esp/esp-idf/components/micro-ecc/micro-ecc/uECC.h \
  /Users/davidhorsley/esp/esp-idf/components/esp32/include/rom/sha.h
 
-/Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_provisioner/build/bootloader/../include/sdkconfig.h:
+/Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/../include/sdkconfig.h:
 
 /Users/davidhorsley/esp/esp-idf/components/bootloader_support/include_bootloader/bootloader_flash.h:
 

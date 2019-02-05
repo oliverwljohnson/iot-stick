@@ -20,7 +20,7 @@ esp32/rtc_clk.o: \
  /Users/davidhorsley/esp/esp-idf/components/soc/esp32/include/soc/dport_reg.h \
  /Users/davidhorsley/esp/esp-idf/components/soc/esp32/include/soc/dport_access.h \
  /Users/davidhorsley/esp/esp-idf/components/esp32/include/esp_dport_access.h \
- /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_provisioner/build/bootloader/../include/sdkconfig.h \
+ /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/../include/sdkconfig.h \
  /Users/davidhorsley/esp/esp-idf/components/soc/esp32/include/soc/uart_reg.h \
  /Users/davidhorsley/esp/esp-idf/components/esp32/include/xtensa/xtruntime.h \
  /Users/davidhorsley/esp/esp-idf/components/esp32/include/xtensa/config/core.h \
@@ -82,7 +82,7 @@ esp32/rtc_clk.o: \
 
 /Users/davidhorsley/esp/esp-idf/components/esp32/include/esp_dport_access.h:
 
-/Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_provisioner/build/bootloader/../include/sdkconfig.h:
+/Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/../include/sdkconfig.h:
 
 /Users/davidhorsley/esp/esp-idf/components/soc/esp32/include/soc/uart_reg.h:
 

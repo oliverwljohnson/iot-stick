@@ -1,6 +1,6 @@
 spiram_psram.o: \
  /Users/davidhorsley/esp/esp-idf/components/esp32/spiram_psram.c \
- /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_provisioner/build/include/sdkconfig.h \
+ /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/include/sdkconfig.h \
  /Users/davidhorsley/esp/esp-idf/components/newlib/include/string.h \
  /Users/davidhorsley/esp/esp-idf/components/newlib/include/_ansi.h \
  /Users/davidhorsley/esp/esp-idf/components/newlib/include/newlib.h \
@@ -76,7 +76,7 @@ spiram_psram.o: \
  /Users/davidhorsley/esp/esp-idf/components/soc/esp32/include/soc/spi_struct.h \
  /Users/davidhorsley/esp/esp-idf/components/driver/include/driver/periph_ctrl.h
 
-/Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_provisioner/build/include/sdkconfig.h:
+/Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/include/sdkconfig.h:
 
 /Users/davidhorsley/esp/esp-idf/components/newlib/include/string.h:
 

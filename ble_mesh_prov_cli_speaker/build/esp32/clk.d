@@ -20,7 +20,7 @@ clk.o: /Users/davidhorsley/esp/esp-idf/components/esp32/clk.c \
  /Users/davidhorsley/esp/esp-idf/components/newlib/include/sys/syslimits.h \
  /Users/davidhorsley/esp/esp-idf/components/newlib/include/machine/endian.h \
  /Users/davidhorsley/esp/esp-idf/components/newlib/include/machine/param.h \
- /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_provisioner/build/include/sdkconfig.h \
+ /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/include/sdkconfig.h \
  /Users/davidhorsley/esp/esp-idf/components/esp32/include/esp_attr.h \
  /Users/davidhorsley/esp/esp-idf/components/log/include/esp_log.h \
  /Users/davidhorsley/esp/esp-idf/components/esp32/include/rom/ets_sys.h \
@@ -109,7 +109,7 @@ clk.o: /Users/davidhorsley/esp/esp-idf/components/esp32/clk.c \
 
 /Users/davidhorsley/esp/esp-idf/components/newlib/include/machine/param.h:
 
-/Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_provisioner/build/include/sdkconfig.h:
+/Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/include/sdkconfig.h:
 
 /Users/davidhorsley/esp/esp-idf/components/esp32/include/esp_attr.h:
 

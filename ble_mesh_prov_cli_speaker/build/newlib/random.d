@@ -18,7 +18,7 @@ random.o: /Users/davidhorsley/esp/esp-idf/components/newlib/random.c \
  /Users/davidhorsley/esp/esp-idf/components/newlib/include/machine/endian.h \
  /Users/davidhorsley/esp/esp-idf/components/newlib/include/machine/param.h \
  /Users/davidhorsley/esp/esp-idf/components/newlib/platform_include/assert.h \
- /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_provisioner/build/include/sdkconfig.h \
+ /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/include/sdkconfig.h \
  /Users/davidhorsley/esp/esp-idf/components/newlib/include/stdlib.h \
  /Users/davidhorsley/esp/esp-idf/components/newlib/include/_ansi.h \
  /Users/davidhorsley/esp/esp-idf/components/newlib/include/sys/reent.h \
@@ -109,7 +109,7 @@ random.o: /Users/davidhorsley/esp/esp-idf/components/newlib/random.c \
 
 /Users/davidhorsley/esp/esp-idf/components/newlib/platform_include/assert.h:
 
-/Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_provisioner/build/include/sdkconfig.h:
+/Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/include/sdkconfig.h:
 
 /Users/davidhorsley/esp/esp-idf/components/newlib/include/stdlib.h:
 

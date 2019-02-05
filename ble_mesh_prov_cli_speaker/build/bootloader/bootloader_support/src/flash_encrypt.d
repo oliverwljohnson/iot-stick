@@ -3,7 +3,7 @@ src/flash_encrypt.o: \
  /Users/davidhorsley/esp/esp-idf/components/bootloader_support/include_bootloader/bootloader_flash.h \
  /Users/davidhorsley/esp/esp-idf/components/esp32/include/esp_err.h \
  /Users/davidhorsley/esp/esp-idf/components/spi_flash/include/esp_spi_flash.h \
- /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_provisioner/build/bootloader/../include/sdkconfig.h \
+ /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/../include/sdkconfig.h \
  /Users/davidhorsley/esp/esp-idf/components/bootloader_support/include_bootloader/bootloader_random.h \
  /Users/davidhorsley/esp/esp-idf/components/bootloader_support/include/esp_image_format.h \
  /Users/davidhorsley/esp/esp-idf/components/bootloader_support/include/esp_flash_partitions.h \
@@ -44,7 +44,7 @@ src/flash_encrypt.o: \
 
 /Users/davidhorsley/esp/esp-idf/components/spi_flash/include/esp_spi_flash.h:
 
-/Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_provisioner/build/bootloader/../include/sdkconfig.h:
+/Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/bootloader/../include/sdkconfig.h:
 
 /Users/davidhorsley/esp/esp-idf/components/bootloader_support/include_bootloader/bootloader_random.h:
 

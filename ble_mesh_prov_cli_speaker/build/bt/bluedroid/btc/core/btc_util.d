@@ -30,7 +30,7 @@ bluedroid/btc/core/btc_util.o: \
  /Users/davidhorsley/esp/esp-idf/components/newlib/include/sys/_intsup.h \
  /Users/davidhorsley/esp/esp-idf/components/bt/bluedroid/common/include/common/bt_defs.h \
  /Users/davidhorsley/esp/esp-idf/components/bt/bluedroid/common/include/common/bt_trace.h \
- /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_provisioner/build/include/sdkconfig.h \
+ /Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/include/sdkconfig.h \
  /Users/davidhorsley/esp/esp-idf/components/log/include/esp_log.h \
  /Users/davidhorsley/esp/esp-idf/components/esp32/include/rom/ets_sys.h \
  /Users/davidhorsley/esp/esp-idf/components/soc/esp32/include/soc/soc.h \
@@ -105,7 +105,7 @@ bluedroid/btc/core/btc_util.o: \
 
 /Users/davidhorsley/esp/esp-idf/components/bt/bluedroid/common/include/common/bt_trace.h:
 
-/Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_provisioner/build/include/sdkconfig.h:
+/Users/davidhorsley/Documents/Uni/2018/IoT_Tour/Programming/esp-idf-feature-esp-ble-mesh-v0.5/examples/bluetooth/ble_mesh/ble_mesh_prov_cli_speaker/build/include/sdkconfig.h:
 
 /Users/davidhorsley/esp/esp-idf/components/log/include/esp_log.h:
 
