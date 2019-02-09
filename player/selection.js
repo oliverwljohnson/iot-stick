@@ -15,6 +15,8 @@ var spotifyApi = new SpotifyWebApi({
   clientSecret: clientSecret
 });
 
+var devices = null;
+
 /* Reattempts @function f after first refreshing the access 
 */
 async function retryAfterRefresh(f){
@@ -49,7 +51,20 @@ function getDevices() {
         });
 }
 
-var devices = null;
 
+async function init(){
+    retryAfterRefresh(console.log);
+    let promise = new Promise (function(resolve, reject) {
+        resolve(getDevices());
+      });
+    devices = await promise[0];
+}
 
+let promise = new Promise(function(resolve, reject) {
+    resolve("done");
+  
+    reject(new Error("…")); // ignored
+    setTimeout(() => resolve("…")); // ignored
+  });
 
+init();
