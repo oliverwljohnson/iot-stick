@@ -33,15 +33,16 @@ me = spotify.me()
 # spotify.trace = False
 def getSuggestions():
     reccomendFile = open("reccomendations", "r")
-    genres = ["rock"]
+    genres = ["dubstep"]
     print("Of the Availiable genres:", spotify.recommendation_genre_seeds(), "\n the following seeds were given:", genres)
     # TODO: Implement the file format and thus parsing code
     reccomendationsObject = spotify.recommendations(seed_genres=genres,limit=1,country="AU")
     return reccomendationsObject
 
 def playSuggestion(suggested,playlist):
-    spotify.user_playlist_add_tracks(me['id'], playlist['id'], suggested)
-    # spotify.start_playback(playlist_id)
+    print([suggested])
+    spotify.user_playlist_add_tracks(user=me['id'], playlist_id=playlist['id'], tracks=[suggested['tracks'][0]['uri']])
+    spotify.start_playback(context_uri=playlist['uri'])
     return True
 
 # Sets the context for playing by writing a new playlist
