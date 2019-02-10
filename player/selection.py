@@ -32,7 +32,7 @@ me = spotify.me()
 # resuts = client.Spotify.current_user_saved_tracks(spotify)
 # spotify.trace = False
 def getSuggestions():
-    reccomendFile = open("reccomendations", "r")
+    reccomendFile = open("reccomendations", "w")
     genres = ["dubstep"]
     print("Of the Availiable genres:", spotify.recommendation_genre_seeds(), "\n the following seeds were given:", genres)
     # TODO: Implement the file format and thus parsing code
