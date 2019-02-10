@@ -147,9 +147,9 @@ static void gen_user_prop_get_handler(esp_ble_mesh_model_t *model,
                                   esp_ble_mesh_msg_ctx_t *ctx,
                                   uint16_t length, uint8_t *data)
 {
-    ESP_LOGD(TAG, " User Property Get handler called..");
+    ESP_LOGI(TAG, " User Property Get handler called..");
 
-    ESP_LOGD(TAG," User property received is.. %d", *data);
+    ESP_LOGI(TAG," User property received is.. %d", *data);
 }
 
 /* Called when the Model callback is called and the event opcode corresponds with the User_Property_Set Model Operation */
@@ -253,7 +253,7 @@ static void esp_ble_mesh_model_cb(esp_ble_mesh_model_cb_event_t event,
     /* The event triggered by the two scenarios below:
         Server Model receives Get Status or Set Status from Client Model;
         Client Model receives Status State from Server Model. */
-        ESP_LOGD(TAG, "Model Operation event occured..");
+        ESP_LOGI(TAG, "Model Operation event occured..");
         if (!param->model_operation.model || !param->model_operation.model->op || !param->model_operation.ctx) { // Parameter is null
             ESP_LOGE(TAG, "ESP_BLE_MESH_MODEL_OPERATION_EVT parameter is NULL");
             return;
@@ -273,7 +273,7 @@ static void esp_ble_mesh_model_cb(esp_ble_mesh_model_cb_event_t event,
             break;
 
         case ESP_BLE_MESH_CLIENT_MODEL_RECV_PUBLISH_MSG_EVT: // Reveived Published Msg
-            ESP_LOGD(TAG, "Recieved Published Msg evt fired....");
+            ESP_LOGI(TAG, "Recieved Published Msg evt fired....");
             break;
         default:
             break;

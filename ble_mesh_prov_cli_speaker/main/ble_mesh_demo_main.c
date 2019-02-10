@@ -400,7 +400,7 @@ static void esp_ble_mesh_prov_cb(esp_ble_mesh_prov_cb_event_t event,
 static void esp_ble_mesh_model_cb(esp_ble_mesh_model_cb_event_t event,
                                   esp_ble_mesh_model_cb_param_t *param)
 {
-    ESP_LOGD(TAG, "Model callback fired..");
+    ESP_LOGI(TAG, "Model callback fired..");
     switch (event) {
     case ESP_BLE_MESH_MODEL_OPERATION_EVT:
         break;
