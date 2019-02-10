@@ -7,7 +7,8 @@ Created on Sat Feb  9 21:04:42 2019
 
 import spotipy
 import spotipy.util as util
-import spotipy.client as client
+import time
+import math
 
 SPOTIPY_CLIENT_ID ='2722912b2a164140bc1ba1919913f5cd'
 SPOTIPY_CLIENT_SECRET ='49929317ad3e4d0a87624f29525acd43'
@@ -28,6 +29,18 @@ else:
 
 # resuts = client.Spotify.current_user_saved_tracks(spotify)
 # spotify.trace = False
+def getSuggestions():
+    networkStateFile = open("reccomendations", "w")
+    return True
+
+def playSuggestion():
+    return True
+
+getSuggestions()
+
+
+
+
 
 
 # Read the options from file
