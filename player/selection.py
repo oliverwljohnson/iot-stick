@@ -8,6 +8,7 @@ Created on Sat Feb  9 21:04:42 2019
 import spotipy
 import spotipy.util as util
 import json
+import datetime
 
 SPOTIPY_CLIENT_ID ='2722912b2a164140bc1ba1919913f5cd'
 SPOTIPY_CLIENT_SECRET ='49929317ad3e4d0a87624f29525acd43'
@@ -25,6 +26,8 @@ if token:
 else:
     print("Auth failed for", username)
 
+me = spotify.me()
+
 
 # resuts = client.Spotify.current_user_saved_tracks(spotify)
 # spotify.trace = False
@@ -36,12 +39,23 @@ def getSuggestions():
     reccomendationsObject = spotify.recommendations(seed_genres=genres,limit=1,country="AU")
     return reccomendationsObject
 
-def playSuggestion():
+def playSuggestion(suggested,playlist):
+    spotify.user_playlist_add_tracks(me['id'], playlist['id'], suggested)
+    # spotify.start_playback(playlist_id)
     return True
 
+# Sets the context for playing by writing a new playlist
+def newPlaylist():
+    playlist = spotify.user_playlist_create(user=me['id'], name=("IoT Recommends - "+datetime.datetime.now().strftime('%c')), description=("IoT Recommends"))
+    print("The current context for playing is", playlist['uri'])
+    return playlist
+
+playlist = newPlaylist()
 suggested = getSuggestions()
-print(json.dumps(suggested,indent=3))
-print(suggested["tracks"][0]["name"])
+print(json.dumps(playlist, indent = 2))
+playSuggestion(suggested,playlist)
+
+
 
 
 
