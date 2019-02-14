@@ -8,10 +8,8 @@
  */
 
 /* 
-
     BLE Mesh Glowstick Node Code
         - Gen User Data Server Model
-
 */
 
 #include <stdio.h>
@@ -73,7 +71,6 @@ static esp_ble_mesh_model_pub_t genre_model_pub = {
 
 /*
 static esp_ble_mesh_client_t genre_client;
-
 // Model publication context 
 static esp_ble_mesh_model_pub_t user_property_pub = { 
      Publication Buffer, containing the publication msg. Can be created by NET_BUF_SIMPLE 

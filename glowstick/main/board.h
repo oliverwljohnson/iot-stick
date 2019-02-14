@@ -14,17 +14,10 @@
 #define LED_R GPIO_NUM_25
 #define LED_G GPIO_NUM_26
 #define LED_B GPIO_NUM_27
-#define LED_BOARD GPIO_NUM_23
 #elif defined(CONFIG_ESP_WROVER_BOARD)
 #define LED_R GPIO_NUM_0
 #define LED_G GPIO_NUM_2
 #define LED_B GPIO_NUM_4
-#define LED_BOARD GPIO_NUM_23
-#elif defined(CONFIG_ESP32_DevKit)
-#define LED_R GPIO_NUM_25
-#define LED_G GPIO_NUM_26
-#define LED_B GPIO_NUM_27
-#define LED_BOARD GPIO_NUM_2
 #endif
 
 #define LED_ON  1
