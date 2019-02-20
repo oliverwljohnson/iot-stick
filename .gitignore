@@ -65,3 +65,5 @@ typings/
 .next
 .cache-Oliver.Johnson1998@gmail.com
 player/reccomendations
+reccomendations
+player/__pycache__/serial_read.cpython-36.pyc
