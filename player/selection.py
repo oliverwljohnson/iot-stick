@@ -6,6 +6,7 @@ import sched, time
 import subprocess
 import getpass
 import serial_read
+from collections import Counter
 
 
 SPOTIPY_CLIENT_ID ='2722912b2a164140bc1ba1919913f5cd'
@@ -32,10 +33,7 @@ def checkEnvironment():
     devices = spotify.devices()
     print(devices)
     if len(devices) > 0:
-        print("There are", len(devices['devices']), "active players")
-    else:
-        print("There are no active players, beginning local player")
-        subprocess.Popen(["librespot","-n",player_name,"-u",username,"-p",getpass.getpass()])
+        print("There are", len(devices['devices']), "devices")
 
 checkEnvironment()
 
@@ -49,13 +47,19 @@ print("The current context is", playlist["uri"])
 # getNextSong()
 spotify.start_playback(uris=['spotify:track:2374M0fQpWi3dLnB54qaLX'])
 # Queue Songs, Forcing them to play
-
+def getMajority(votes):
+    vote_count = Counter(votes)
+    top_five = vote_count.most_common(5)
+    print(top_five)
+    return(top_five)
 
 def getSuggestions():
     serial_read.readUART()
     f = open("reccomendations", "r")
-    genres_list = text_file.read().split(',')
-    print(f.readline(10))
+    g_time, *g_votes = f.readline().strip().split(',')
+    print(g_time)
+    print(g_votes)
+    getMajority(g_votes)
     print("Of the Availiable genres:", spotify.recommendation_genre_seeds(), "\n the following seeds were given:", genres)
     # TODO: Implement the file format and thus parsing code
     reccomendationsObject = spotify.recommendations(seed_genres=genres,limit=1,country="AU")

@@ -17,11 +17,11 @@ def readUART():
         timeout=1
     )   
     counter=0
+    time.sleep(1)
     while (counter < 10):
         x=ser.readline().decode('utf-8')
         print (x)
-        t="["+str(math.floor(time.time()))+","+str(x)+"]"+"\n"
+        t=str(math.floor(time.time()))+","+str(x)+"\n"
         f.write(str(t))
         f.flush()
         counter += 1
-readUART()
