@@ -18,7 +18,7 @@ def readUART():
     )   
     counter=0
     time.sleep(1)
-    while (counter < 10):
+    while (counter < 1):
         x=ser.readline().decode('utf-8')
         print (x)
         t=str(math.floor(time.time()))+","+str(x)+"\n"
