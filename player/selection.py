@@ -7,6 +7,7 @@ import subprocess
 import getpass
 import serial_read
 from collections import Counter
+import random
 
 
 SPOTIPY_CLIENT_ID ='2722912b2a164140bc1ba1919913f5cd'
@@ -23,10 +24,10 @@ token = util.prompt_for_user_token(username,scope,client_id=SPOTIPY_CLIENT_ID,cl
 if token:
     spotify = spotipy.Spotify(auth=token)
     print("Initialization Complete, auth approved for", username, "for scopes:", scope)
+    me = spotify.me()
 else:
     print("Auth failed for", username)
 
-me = spotify.me()
 
 # Check that "Pi Radio" is setup
 def checkEnvironment():
@@ -35,62 +36,72 @@ def checkEnvironment():
     if len(devices) > 0:
         print("There are", len(devices['devices']), "devices")
 
-checkEnvironment()
-
-# Setup Playing Context
-playlist = spotify.user_playlist_create(user=me['id'], name=("IoT Recommends - "+datetime.datetime.now().strftime('%c')), description=("IoT Recommends"))
-print("The current context is", playlist["uri"])
-
-# Suggest Songs from reccomendations
-
-
-# getNextSong()
-spotify.start_playback(uris=['spotify:track:2374M0fQpWi3dLnB54qaLX'])
-# Queue Songs, Forcing them to play
-def getMajority(votes):
+# A Vote Selection algorithm
+def getVotes_a_la_mode(votes):
     vote_count = Counter(votes)
-    top_five = vote_count.most_common(5)
-    print(top_five)
-    return(top_five)
+    top_count = vote_count.most_common(5)
+    if top_count == []:
+        return ['pop']
+    else:
+        empty = []
+        for pair in top_count:
+            empty.append(pair[0])
+    return empty
 
+def getVotes_a_la_random(votes):
+    if votes == []:
+        return ['pop']
+    else:
+        empty = []
+        for x in range(5):
+            empty.append(votes[random.randint(0,len(votes)-1)])
+    return empty
+
+# Get suggestion from votes
 def getSuggestions():
     serial_read.readUART()
     f = open("reccomendations", "r")
     g_time, *g_votes = f.readline().strip().split(',')
-    print(g_time)
-    print(g_votes)
-    getMajority(g_votes)
-    print("Of the Availiable genres:", spotify.recommendation_genre_seeds(), "\n the following seeds were given:", genres)
-    # TODO: Implement the file format and thus parsing code
+    print("Votes taken at",time.ctime(int(g_time)))
+    print("The votes are:",g_votes)
+    genres = getVotes_a_la_random(g_votes)
+    print("Of the Availiable genres:", spotify.recommendation_genre_seeds(), "\n We will be listening to:",genres)
     reccomendationsObject = spotify.recommendations(seed_genres=genres,limit=1,country="AU")
+    print(json.dumps(reccomendationsObject,indent=2))
     return reccomendationsObject
 
-def playSuggestion(suggested,playlist):
-    print([suggested])
-    spotify.user_playlist_add_tracks(user=me['id'], playlist_id=playlist['id'], tracks=[suggested['tracks'][0]['uri']])
+def queueSong(sugg):
+    spotify.user_playlist_add_tracks(user=me['id'], playlist_id=playlist['id'], tracks=[sugg['tracks'][0]['uri']])
+    return sugg['tracks'][0]['uri']
+
+def playSong():
     spotify.start_playback(context_uri=playlist['uri'])
-    return True
-
-# Sets the context for playing by writing a new playlist
 
 
 
 
 
-suggested = getSuggestions()
-# print(json.dumps(playlist, indent = 2))
-# playSuggestion(suggested,playlist)
+checkEnvironment()
+playlist = spotify.user_playlist_create(user=me['id'], name=("IoT Recommends - "+datetime.datetime.now().strftime('%c')), description=("IoT Recommends"))
+print("The current context is", playlist["uri"])
+
+latestTrack = queueSong(getSuggestions())
+playSong()
 
 s = sched.scheduler(time.time, time.sleep)
 def play_loop(sc): 
     print("Playing loop...")
     currentTrack = spotify.current_user_playing_track()
-    if((currentTrack['item']['duration_ms'] - currentTrack['progress_ms']) < (15 * 1000)):
+    currentContext = spotify.current_playback()['context']
+    print(json.dumps(currentContext, indent=2)) 
+    if currentContext is None:
+        spotify.start_playback(context_uri=playlist['uri'],offset={"uri":queueSong(getSuggestions())})
+    if((currentTrack['item']['duration_ms'] - currentTrack['progress_ms']) < (30 * 1000)):
         print("Reading Network File...")
-        suggested = getSuggestions()
-        spotify.user_playlist_add_tracks(user=me['id'], playlist_id=playlist['id'], tracks=[suggested['tracks'][0]['uri']])
+        latestTrack = queueSong(getSuggestions())
+        print(latestTrack)
     s.enter(5, 1, play_loop, (sc,))
 
-# s.enter(5, 1, play_loop, (s,))
-# s.run()
+s.enter(5, 1, play_loop, (s,))
+s.run()
 
