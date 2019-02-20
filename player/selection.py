@@ -74,12 +74,6 @@ def play_loop(sc):
 s.enter(5, 1, play_loop, (s,))
 s.run()
 
-
-
-
-
-
-
 # Read the options from file
 # Get suggestions
 # Check suggestions against songs played for the last 2 hours
