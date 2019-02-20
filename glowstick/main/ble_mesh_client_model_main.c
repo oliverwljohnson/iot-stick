@@ -88,7 +88,7 @@ static esp_ble_mesh_model_pub_t user_property_pub = {
         - param_cb: Just for the BLE Mesh protocol, applications should just initialise to 0.  
  */
 static esp_ble_mesh_model_op_t user_property_op[] = {
-    { ESP_BLE_MESH_MODEL_OP_GEN_USER_PROPERTY_GET, 2, 0}, // User Property Get
+    { ESP_BLE_MESH_MODEL_OP_GEN_USER_PROPERTY_GET, 0, 0}, // User Property Get
     { ESP_BLE_MESH_MODEL_OP_GEN_USER_PROPERTY_SET, 2, 0}, // User Property Set
     { ESP_BLE_MESH_MODEL_OP_GEN_USER_PROPERTY_SET_UNACK, 2, 0}, // User Property Set Unacknowledged
     /* Each model operation struct array must use this terminator
@@ -154,9 +154,11 @@ static void gen_user_prop_get_handler(esp_ble_mesh_model_t *model,
                                   esp_ble_mesh_msg_ctx_t *ctx,
                                   uint16_t length, uint8_t *data)
 {
-    ESP_LOGI(TAG, " User Property Get handler called..");
 
-    ESP_LOGI(TAG," User property received is.. %d", *data);
+    ESP_LOGI(TAG, " User Property Get handler called..");
+    ESP_LOGI(TAG, " User Property Get handler called.. %d", data[0]); 
+
+
 }
 
 /* Called when the Model callback is called and the event opcode corresponds with the User_Property_Set Model Operation */

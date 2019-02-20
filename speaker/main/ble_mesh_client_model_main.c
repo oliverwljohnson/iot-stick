@@ -39,6 +39,7 @@ static uint8_t dev_uuid[16] = { 0xdd, 0xdd };
 static uint16_t node_net_idx = ESP_BLE_MESH_KEY_UNUSED;
 static uint16_t node_app_idx = ESP_BLE_MESH_KEY_UNUSED;
 static uint8_t remote_genre = LED_OFF;
+static bool device_provisioned = false;
 
 /* The remote node address shall be input through UART1, see board.c */
 uint16_t remote_addr = ESP_BLE_MESH_ADDR_ALL_NODES;
@@ -76,12 +77,12 @@ static esp_ble_mesh_model_pub_t genre_srv_pub = {
 */
 
 static esp_ble_mesh_model_pub_t genre_cli_pub = {
-    .msg = NET_BUF_SIMPLE(2 + 1),
+    .msg = NET_BUF_SIMPLE(6 + 1),
     .update = NULL,
     .dev_role = MSG_ROLE,
-    .retransmit = ESP_BLE_MESH_TRANSMIT(2,20), // 3 transmission with 20ms intervals
-    .period = 100,
-    .period_start = 1,
+    //.retransmit = ESP_BLE_MESH_TRANSMIT(2,20), // 3 transmission with 20ms intervals
+    //.period = 100,
+    //.period_start = 1,
 };
 
 static esp_ble_mesh_model_op_t genre_op[] = {
@@ -136,12 +137,15 @@ static void prov_complete(uint16_t net_idx, uint16_t addr)
     // app_pub_msg_test(remote_addr);
     uint8_t my_data = 0;
     int err = 0;
+    device_provisioned = true;
 
+    /*
     esp_ble_mesh_model_publish(genre_cli_pub.model, ESP_BLE_MESH_MODEL_OP_GEN_USER_PROPERTY_GET,sizeof(my_data),&my_data,MSG_ROLE);
     if (err != ESP_OK) {
         ESP_LOGE(TAG, "%s: Publish failed in prov_complete", __func__);
         return;
     }
+    */
 }
 
 static void gen_genre_get_handler(esp_ble_mesh_model_t *model,
@@ -552,76 +556,28 @@ static esp_err_t bluetooth_init(void)
 */
 void app_pub_msg_test(uint16_t in_addr)
 {
-    esp_err_t error;
+    if (device_provisioned) {
+        esp_err_t error;
+        enum genre {EDM, classical, rock}; // Defines the music genre selected by the user/glowstick
+        enum genre my_selection = EDM;
 
-    enum genre {EDM, classical, rock}; // Defines the music genre selected by the user/glowstick
-    enum genre my_selection = EDM;
+        uint8_t *my_data = (uint8_t) my_selection;
+        esp_ble_mesh_model_t *my_model = &root_models[1];
 
-    uint8_t *my_data = (uint8_t) my_selection;
-    esp_ble_mesh_model_t *my_model = &root_models[1];
+        esp_ble_mesh_model_msg_opcode_init(my_data, ESP_BLE_MESH_MODEL_OP_GEN_USER_PROPERTY_GET);
 
-    esp_ble_mesh_model_msg_opcode_init(my_data, ESP_BLE_MESH_MODEL_OP_GEN_USER_PROPERTY_GET);
-
-    ESP_LOGI(TAG, "Attempting message publication..."); // debugging
-    error = esp_ble_mesh_model_publish(my_model, ESP_BLE_MESH_MODEL_OP_GEN_USER_PROPERTY_GET, sizeof(my_data), my_data, MSG_ROLE);
-    //error = esp_ble_mesh_client_model_send_msg(my_model, &my_ctx, ESP_BLE_MESH_MODEL_OP_GEN_USER_PROPERTY_GET, sizeof(my_data), my_data, 1000, false, MSG_ROLE);
-    if (error) {
-        ESP_LOGE(TAG, " message publication failed"); // debugging
-    }
-    else {
-        ESP_LOGI(TAG, " message publication succesful!"); // debugging
-    }
-
-    /*
-    esp_ble_mesh_msg_ctx_t my_ctx;
-    my_ctx.net_idx = prov_key.net_idx;
-    my_ctx.app_idx = prov_key.app_idx;
-    // my_ctx.addr = ESP_BLE_MESH_ADDR_ALL_NODES;
-    my_ctx.addr = in_addr; //0x0005; 
-    my_ctx.send_ttl = 7;
-
-    // esp_ble_mesh_msg_ctx_t *my_ctx_ptr = &my_ctx;
-    esp_ble_mesh_client_common_param_t com_params;
-    esp_ble_mesh_client_common_param_t *my_com_params = &com_params; 
-    my_com_params->opcode = ESP_BLE_MESH_MODEL_OP_GEN_USER_PROPERTY_GET;
-    my_com_params->model = my_model;
-    my_com_params->ctx = my_ctx;
-    my_com_params->msg_timeout = MSG_TIMEOUT;
-    my_com_params->msg_role = MSG_ROLE;
-
-    esp_ble_mesh_gen_client_status_cb_t my_status_cb;
-    esp_err_t my_error = 0;
-
-    esp_ble_mesh_generic_client_cb_param_t my_params_init;
-    esp_ble_mesh_generic_client_cb_param_t *my_params = &my_params_init;
-    my_params->error_code = my_error;
-    my_params->params = my_com_params;
-    my_params->status_cb = my_status_cb;
-    //uint8_t null_data = 0;
-    */
-   
-   /*
-    ESP_LOGI(TAG, "Starting loop..");
-    int count = 0;
-    while(1){
-        count++;
-        if (count > 1000000){
-            count = 0;
-            //esp_ble_mesh_generic_client_cb(ESP_BLE_MESH_GENERIC_CLIENT_GET_STATE_EVT, my_params); 
-            
-            ESP_LOGI(TAG, "Attempting message publication..."); // debugging
-            error = esp_ble_mesh_model_publish(my_model, ESP_BLE_MESH_MODEL_OP_GEN_USER_PROPERTY_GET, sizeof(my_data), my_data, MSG_ROLE);
-            //error = esp_ble_mesh_client_model_send_msg(my_model, &my_ctx, ESP_BLE_MESH_MODEL_OP_GEN_USER_PROPERTY_GET, sizeof(my_data), my_data, 1000, false, MSG_ROLE);
-                if (error) {
-                    ESP_LOGE(TAG, " message publication failed"); // debugging
-                }
-                else {
-                    ESP_LOGI(TAG, " message publication succesful!"); // debugging
-                }
+        ESP_LOGI(TAG, "Attempting message publication..."); // debugging
+        ESP_LOGI(TAG, "Data size..%d", sizeof(&my_data));
+        error = esp_ble_mesh_model_publish(my_model, ESP_BLE_MESH_MODEL_OP_GEN_USER_PROPERTY_GET, sizeof(&my_data), &my_data, MSG_ROLE);
+        // error = esp_ble_mesh_model_publish(my_model, ESP_BLE_MESH_MODEL_OP_GEN_USER_PROPERTY_GET, sizeof(my_data), my_data, MSG_ROLE);
+        //error = esp_ble_mesh_client_model_send_msg(my_model, &my_ctx, ESP_BLE_MESH_MODEL_OP_GEN_USER_PROPERTY_GET, sizeof(my_data), my_data, 1000, false, MSG_ROLE);
+        if (error) {
+            ESP_LOGE(TAG, " message publication failed"); // debugging
+        }
+        else {
+            ESP_LOGI(TAG, " message publication succesful!"); // debugging
         }
     }
-    */
-    
 
 }
 
@@ -666,5 +622,10 @@ void app_main(void)
 
     ESP_ERROR_CHECK(esp_timer_start_periodic(periodic_timer, 5000000));
     ESP_LOGI(TAG, "Started timers, time since boot: %lld us", esp_timer_get_time());
+
+    // This has been set to true to avoid having to provision the device before publishing but MUST be removed!
+    // ESP_LOGE(TAG,"Testing publishing.. must remove!");
+    // device_provisioned = true;
+    // Remove this
 
 }
