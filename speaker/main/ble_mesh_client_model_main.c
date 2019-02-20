@@ -23,6 +23,7 @@
 #include "esp_ble_mesh_generic_model_api.h"
 
 #include "board.h"
+#include "inttypes.h"
 
 #define TAG "ble_mesh_client"
 
@@ -559,16 +560,17 @@ void app_pub_msg_test(uint16_t in_addr)
     if (device_provisioned) {
         esp_err_t error;
         enum genre {EDM, classical, rock}; // Defines the music genre selected by the user/glowstick
-        enum genre my_selection = EDM;
+        enum genre my_selection = classical;
 
-        uint8_t *my_data = (uint8_t) my_selection;
+        uint8_t my_data = (uint8_t) my_selection;
         esp_ble_mesh_model_t *my_model = &root_models[1];
 
-        esp_ble_mesh_model_msg_opcode_init(my_data, ESP_BLE_MESH_MODEL_OP_GEN_USER_PROPERTY_GET);
+        esp_ble_mesh_model_msg_opcode_init(&my_data, ESP_BLE_MESH_MODEL_OP_GEN_USER_PROPERTY_GET);
 
         ESP_LOGI(TAG, "Attempting message publication..."); // debugging
-        ESP_LOGI(TAG, "Data size..%d", sizeof(&my_data));
-        error = esp_ble_mesh_model_publish(my_model, ESP_BLE_MESH_MODEL_OP_GEN_USER_PROPERTY_GET, sizeof(&my_data), &my_data, MSG_ROLE);
+        ESP_LOGI(TAG, "Data size..%d", sizeof(my_data));
+        //printf("%" PRIu8, (my_data));
+        error = esp_ble_mesh_model_publish(my_model, ESP_BLE_MESH_MODEL_OP_GEN_USER_PROPERTY_GET, sizeof(my_data), &my_data, MSG_ROLE);
         // error = esp_ble_mesh_model_publish(my_model, ESP_BLE_MESH_MODEL_OP_GEN_USER_PROPERTY_GET, sizeof(my_data), my_data, MSG_ROLE);
         //error = esp_ble_mesh_client_model_send_msg(my_model, &my_ctx, ESP_BLE_MESH_MODEL_OP_GEN_USER_PROPERTY_GET, sizeof(my_data), my_data, 1000, false, MSG_ROLE);
         if (error) {
@@ -624,8 +626,8 @@ void app_main(void)
     ESP_LOGI(TAG, "Started timers, time since boot: %lld us", esp_timer_get_time());
 
     // This has been set to true to avoid having to provision the device before publishing but MUST be removed!
-    // ESP_LOGE(TAG,"Testing publishing.. must remove!");
-    // device_provisioned = true;
+    //ESP_LOGE(TAG,"Testing publishing.. must remove!");
+    //device_provisioned = true;
     // Remove this
 
 }

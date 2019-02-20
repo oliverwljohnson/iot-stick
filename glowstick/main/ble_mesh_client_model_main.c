@@ -64,7 +64,7 @@ static esp_ble_mesh_cfg_srv_t config_server = {
 
 static esp_ble_mesh_client_t genre_client; // Music genre Client
 static esp_ble_mesh_model_pub_t genre_model_pub = {
-    .msg = NET_BUF_SIMPLE(2 + 1),
+    .msg = NET_BUF_SIMPLE(6 + 1),
     .update = NULL,
     .dev_role = ROLE_PROVISIONER,
 }; // Music genre model publication type
@@ -156,8 +156,11 @@ static void gen_user_prop_get_handler(esp_ble_mesh_model_t *model,
 {
 
     ESP_LOGI(TAG, " User Property Get handler called..");
-    ESP_LOGI(TAG, " User Property Get handler called.. %d", data[0]); 
+    ESP_LOGI(TAG, " User Property Get handler called.. %d", data[length]); 
 
+    //enum genre {EDM, classical, rock}; // Defines the music genre selected by the user/glowstick
+    //enum genre my_selection = data[0];
+    //ESP_LOGI(TAG, " User Property Get handler called.. %s", my_selection);
 
 }
 
