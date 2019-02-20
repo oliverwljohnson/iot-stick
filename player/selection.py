@@ -34,7 +34,7 @@ me = spotify.me()
 # spotify.trace = False
 def getSuggestions():
     reccomendFile = open("reccomendations", "w")
-    genres = ["pop"]
+    genres = ["dubstep"]
     print("Of the Availiable genres:", spotify.recommendation_genre_seeds(), "\n the following seeds were given:", genres)
     # TODO: Implement the file format and thus parsing code
     reccomendationsObject = spotify.recommendations(seed_genres=genres,limit=1,country="AU")
@@ -48,7 +48,7 @@ def playSuggestion(suggested,playlist):
 
 # Sets the context for playing by writing a new playlist
 def newPlaylist():
-    playlist = spotify.user_playlist_create(user=me['id'], name=("IoT Recommends - "+datetime.datetime.now().strftime('%c')), description=("IoT Reccommends"))
+    playlist = spotify.user_playlist_create(user=me['id'], name=("IoT Recommends - "+datetime.datetime.now().strftime('%c')), description=("IoT Recommends"))
     print("The current context for playing is", playlist['uri'])
     return playlist
 
@@ -63,7 +63,7 @@ s = sched.scheduler(time.time, time.sleep)
 def play_loop(sc): 
     print("Playing loop...")
     currentTrack = spotify.current_user_playing_track()
-    if((currentTrack['item']['duration_ms'] - currentTrack['progress_ms']) < (7 * 1000)):
+    if((currentTrack['item']['duration_ms'] - currentTrack['progress_ms']) < (15 * 1000)):
         print("Reading Network File...")
         suggested = getSuggestions()
         spotify.user_playlist_add_tracks(user=me['id'], playlist_id=playlist['id'], tracks=[suggested['tracks'][0]['uri']])
