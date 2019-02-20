@@ -1,13 +1,13 @@
 # Adapted from instructables.com - Read and write from serial port with Raspberry Pi
 import time
 import serial
-import fs
+import math
 
 f = open("reccomendations", "a")
 
 ser = serial.Serial(
     port='/dev/serial0',
-    baudrate= 115200,
+    baudrate= 9600,
     parity= serial.PARITY_NONE,
     stopbits=serial.STOPBITS_ONE,
     bytesize=serial.EIGHTBITS,
@@ -15,7 +15,10 @@ ser = serial.Serial(
     )
 counter=0
 
-while 1:
-    x=ser.readline()
+while (counter < 10):
+    x=ser.readline().decode('utf-8')
     print (x)
-    f.write("{"+time.time()+","+x+"}")
+    t="{"+str(math.floor(time.time()))+","+str(x)+"}"+"\n"
+    f.write(str(t))
+    f.flush()
+    counter += 1
