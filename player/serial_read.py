@@ -1,4 +1,6 @@
 # Adapted from instructables.com - Read and write from serial port with Raspberry Pi
+
+# Will sample the UART readout 10 times before exiting
 import time
 import serial
 import math
