@@ -5,6 +5,8 @@ import datetime
 import sched, time
 import subprocess
 import getpass
+import serial_read
+
 
 SPOTIPY_CLIENT_ID ='2722912b2a164140bc1ba1919913f5cd'
 SPOTIPY_CLIENT_SECRET ='49929317ad3e4d0a87624f29525acd43'
@@ -50,8 +52,10 @@ spotify.start_playback(uris=['spotify:track:2374M0fQpWi3dLnB54qaLX'])
 
 
 def getSuggestions():
-    reccomendFile = open("reccomendations", "w")
-    genres = ["dubstep"]
+    serial_read.readUART()
+    f = open("reccomendations", "r")
+    genres_list = text_file.read().split(',')
+    print(f.readline(10))
     print("Of the Availiable genres:", spotify.recommendation_genre_seeds(), "\n the following seeds were given:", genres)
     # TODO: Implement the file format and thus parsing code
     reccomendationsObject = spotify.recommendations(seed_genres=genres,limit=1,country="AU")
@@ -69,7 +73,7 @@ def playSuggestion(suggested,playlist):
 
 
 
-# suggested = getSuggestions()
+suggested = getSuggestions()
 # print(json.dumps(playlist, indent = 2))
 # playSuggestion(suggested,playlist)
 
