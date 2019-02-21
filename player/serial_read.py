@@ -5,6 +5,7 @@ import time
 import serial
 import math
 
+genres = ['pop','electro','r-n-b','rock','indie','disco','jazz']
 def readUART():
     f = open("reccomendations", "w")
 
@@ -18,10 +19,12 @@ def readUART():
     )   
     counter=0
     time.sleep(1)
-    while (counter < 1):
+    #counter < 1
+    while (1):
         x=ser.readline().decode('utf-8')
-        print (x)
+        print(x)
         t=str(math.floor(time.time()))+","+str(x)+"\n"
         f.write(str(t))
         f.flush()
         counter += 1
+readUART()
