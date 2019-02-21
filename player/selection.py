@@ -61,8 +61,7 @@ def getVotes_a_la_random(votes):
 def getSuggestions():
     serial_read.readUART()
     f = open("reccomendations", "r")
-    g_time, *g_votes = f.readline().strip().split(',')
-    print("Votes taken at",time.ctime(int(g_time)))
+    g_votes = f.read().split('\n')
     print("The votes are:",g_votes)
     genres = getVotes_a_la_random(g_votes)
     print("Of the Availiable genres:", spotify.recommendation_genre_seeds(), "\n We will be listening to:",genres)
@@ -91,18 +90,21 @@ playSong()
 s = sched.scheduler(time.time, time.sleep)
 def play_loop(sc): 
     print("Playing loop...")
-    currentTrack = spotify.current_user_playing_track()
-    currentContext = spotify.current_playback()['context']
-    print(json.dumps(currentContext, indent=2)) 
-    if currentContext is None:
-        spotify.start_playback(context_uri=playlist['uri'],offset={"uri":latestTrack})
+    try:
+        currentTrack = spotify.current_user_playing_track()
+        currentContext = spotify.current_playback()['context']
+        print(json.dumps(currentContext, indent=2)) 
+        if currentContext is None:
+            spotify.start_playback(context_uri=playlist['uri'],offset={"uri":latestTrack})
+    except:
+        print("May have fallen out of context. We'll get em next time")
     if((currentTrack['item']['duration_ms'] - currentTrack['progress_ms']) < (30 * 1000)):
         print("Reading Network File...")
         global latestTrack
         latestTrack = queueSong(getSuggestions())
         print(latestTrack)
-    s.enter(5, 1, play_loop, (sc,))
+    s.enter(1, 1, play_loop, (sc,))
 
-s.enter(5, 1, play_loop, (s,))
+s.enter(1, 1, play_loop, (s,))
 s.run()
 

@@ -19,12 +19,15 @@ def readUART():
     )   
     counter=0
     time.sleep(1)
-    #counter < 1
-    while (1):
+    #
+    while (counter < 10):
         x=ser.readline().decode('utf-8')
+        print(str.isdigit(x))
         print(x)
-        t=str(math.floor(time.time()))+","+str(x)+"\n"
-        f.write(str(t))
+        if(x.isdigit()):
+            g = genres[int(x) % len(genres)]
+            print(g)
+        f.write(g+"\n")
         f.flush()
         counter += 1
 readUART()
