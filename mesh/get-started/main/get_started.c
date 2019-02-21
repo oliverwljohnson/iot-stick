@@ -143,6 +143,37 @@ static uint32_t getGenre()
     uint32_t voltage = esp_adc_cal_raw_to_voltage(adc_reading, adc_chars);
     printf("Raw: %d\tVoltage: %dmV\n", adc_reading, voltage);
     //vTaskDelay(pdMS_TO_TICKS(1000));
+   
+   if (adc_reading <= 1*(4095 / NO_OF_GENRES)){
+      gpio_set_level(5, 1); // Green
+      gpio_set_level(18, 0); // Blue
+      gpio_set_level(19, 0); // Red
+   } else if (adc_reading <= 2*(4095 / NO_OF_GENRES)){
+      gpio_set_level(5, 0); // Green
+      gpio_set_level(18, 1); // Blue
+      gpio_set_level(19, 0); // Red
+   } else if (adc_reading <= 3*(4095 / NO_OF_GENRES)){
+      gpio_set_level(5, 0); // Green
+      gpio_set_level(18, 0); // Blue
+      gpio_set_level(19, 1); // Red
+   } else if (adc_reading <= 4*(4095 / NO_OF_GENRES)){
+      gpio_set_level(5, 1); // Green
+      gpio_set_level(18, 1); // Blue
+      gpio_set_level(19, 0); // Red
+   } else if (adc_reading <= 5*(4095 / NO_OF_GENRES)){
+      gpio_set_level(5, 1); // Green
+      gpio_set_level(18, 0); // Blue
+      gpio_set_level(19, 1); // Red
+   } else if (adc_reading <= 6*(4095 / NO_OF_GENRES)){
+      gpio_set_level(5, 0); // Green
+      gpio_set_level(18, 1); // Blue
+      gpio_set_level(19, 1); // Red
+   } else (adc_reading <= 7*(4095 / NO_OF_GENRES)){
+      gpio_set_level(5, 1); // Green
+      gpio_set_level(18, 1); // Blue
+      gpio_set_level(19, 1); // Red
+   };
+   
     return adc_reading /= (4095 / NO_OF_GENRES);
 }
 
