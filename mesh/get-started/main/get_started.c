@@ -26,9 +26,7 @@
 #include "mwifi.h"
 
 /* UART asynchronous example, that uses separate RX and TX tasks
-
    This example code is in the Public Domain (or CC0 licensed, at your option.)
-
    Unless required by applicable law or agreed to in writing, this
    software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
    CONDITIONS OF ANY KIND, either express or implied.
@@ -41,6 +39,11 @@
 #include "soc/uart_struct.h"
 #include "string.h"
 
+// Interupts
+#include <string.h>
+#include "freertos/queue.h"
+#include "driver/gpio.h"
+
 /*
    ANALOG READER
 */
@@ -52,9 +55,7 @@
 // #define MEMORY_DEBUG
 
 /* ADC1 Example
-
    This example code is in the Public Domain (or CC0 licensed, at your option.)
-
    Unless required by applicable law or agreed to in writing, this
    software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
    CONDITIONS OF ANY KIND, either express or implied.
@@ -143,36 +144,11 @@ static uint32_t getGenre()
     uint32_t voltage = esp_adc_cal_raw_to_voltage(adc_reading, adc_chars);
     printf("Raw: %d\tVoltage: %dmV\n", adc_reading, voltage);
     //vTaskDelay(pdMS_TO_TICKS(1000));
-   
+   /*
    if (adc_reading <= 1*(4095 / NO_OF_GENRES)){
-      gpio_set_level(5, 1); // Green
-      gpio_set_level(18, 0); // Blue
-      gpio_set_level(19, 0); // Red
-   } else if (adc_reading <= 2*(4095 / NO_OF_GENRES)){
-      gpio_set_level(5, 0); // Green
-      gpio_set_level(18, 1); // Blue
-      gpio_set_level(19, 0); // Red
-   } else if (adc_reading <= 3*(4095 / NO_OF_GENRES)){
-      gpio_set_level(5, 0); // Green
-      gpio_set_level(18, 0); // Blue
-      gpio_set_level(19, 1); // Red
-   } else if (adc_reading <= 4*(4095 / NO_OF_GENRES)){
-      gpio_set_level(5, 1); // Green
-      gpio_set_level(18, 1); // Blue
-      gpio_set_level(19, 0); // Red
-   } else if (adc_reading <= 5*(4095 / NO_OF_GENRES)){
-      gpio_set_level(5, 1); // Green
-      gpio_set_level(18, 0); // Blue
-      gpio_set_level(19, 1); // Red
-   } else if (adc_reading <= 6*(4095 / NO_OF_GENRES)){
-      gpio_set_level(5, 0); // Green
-      gpio_set_level(18, 1); // Blue
-      gpio_set_level(19, 1); // Red
-   } else (adc_reading <= 7*(4095 / NO_OF_GENRES)){
-      gpio_set_level(5, 1); // Green
-      gpio_set_level(18, 1); // Blue
-      gpio_set_level(19, 1); // Red
+      g
    };
+   */
    
     return adc_reading /= (4095 / NO_OF_GENRES);
 }
@@ -299,7 +275,6 @@ void node_write_task(void *arg)
             continue;
         }
         
-        //int genre = getGenre();
         MDF_LOGI("Node sending genre... %d", genre);
         size = sprintf(data, "%d", genre);
         ret = mwifi_write(NULL, &data_type, data, size, true);
@@ -341,10 +316,10 @@ static void print_system_info_timercb(void *timer)
         MDF_LOGI("Child mac: " MACSTR, MAC2STR(wifi_sta_list.sta[i].mac));
     }
 
-    if(config.mesh_type != MESH_ROOT) {
+    /*if(config.mesh_type != MESH_ROOT) {
         MDF_LOGI("This node is resetting, need to update Genre");
         esp_restart();
-    }
+    }*/
 
 #ifdef MEMORY_DEBUG
     if (!heap_caps_check_integrity_all(true)) {
@@ -414,9 +389,131 @@ static mdf_err_t wifi_init()
     return MDF_OK;
 }
 
+#define GPIO_INPUT_IO_0     16
+#define GPIO_INPUT_IO_1     17
+#define GPIO_INPUT_IO_2     18
+#define GPIO_INPUT_IO_3     19
+#define GPIO_INPUT_IO_4     21
+#define GPIO_INPUT_IO_5     25
+#define GPIO_INPUT_IO_6     26
+
+
+#define GPIO_INPUT_PIN_SEL  ((1ULL<<GPIO_INPUT_IO_0) | (1ULL<<GPIO_INPUT_IO_1) | (1ULL<<GPIO_INPUT_IO_2) | (1ULL<<GPIO_INPUT_IO_3) | (1ULL<<GPIO_INPUT_IO_4) | (1ULL<<GPIO_INPUT_IO_5) | (1ULL<<GPIO_INPUT_IO_6))
+#define ESP_INTR_FLAG_DEFAULT 0
+
+static xQueueHandle gpio_evt_queue = NULL;
+
+static void IRAM_ATTR gpio_isr_handler(void* arg)
+{
+    uint32_t gpio_num = (uint32_t) arg;
+    xQueueSendFromISR(gpio_evt_queue, &gpio_num, NULL);
+}
+
+static void gpio_task_example(void* arg)
+{
+    uint32_t io_num;
+    for(;;) {
+        if(xQueueReceive(gpio_evt_queue, &io_num, portMAX_DELAY)) {
+            printf("GPIO[%d] intr, val: %d\n", io_num, gpio_get_level(io_num));
+
+            gpio_set_direction(GPIO_NUM_13, GPIO_MODE_OUTPUT);
+            gpio_set_direction(GPIO_NUM_14, GPIO_MODE_OUTPUT);
+            gpio_set_direction(GPIO_NUM_15, GPIO_MODE_OUTPUT);
+
+            switch (io_num)
+            {
+                case GPIO_INPUT_IO_0:
+                    gpio_set_level(GPIO_NUM_15, 1); // Green
+                    gpio_set_level(GPIO_NUM_13, 0); // Blue
+                    gpio_set_level(GPIO_NUM_14, 0); // Red
+                    genre = 0;      
+                    break;
+                case GPIO_INPUT_IO_1:
+                    gpio_set_level(GPIO_NUM_15, 0); // Green
+                    gpio_set_level(GPIO_NUM_13, 1); // Blue
+                    gpio_set_level(GPIO_NUM_14, 0); // Red
+                    genre = 1;
+                    break;
+                case GPIO_INPUT_IO_2:
+                    gpio_set_level(GPIO_NUM_15, 0); // Green
+                    gpio_set_level(GPIO_NUM_13, 0); // Blue
+                    gpio_set_level(GPIO_NUM_14, 1); // Red
+                    genre = 2;
+                    break;
+                case GPIO_INPUT_IO_3:
+                    gpio_set_level(GPIO_NUM_15, 1); // Green
+                    gpio_set_level(GPIO_NUM_13, 1); // Blue
+                    gpio_set_level(GPIO_NUM_14, 0); // Red
+                    genre = 3;
+                    break;
+                case GPIO_INPUT_IO_4:
+                    gpio_set_level(GPIO_NUM_15, 1); // Green
+                    gpio_set_level(GPIO_NUM_13, 0); // Blue
+                    gpio_set_level(GPIO_NUM_14, 1); // Red
+                    genre = 4;
+                    break;
+                case GPIO_INPUT_IO_5:
+                    gpio_set_level(GPIO_NUM_15, 0); // Green
+                    gpio_set_level(GPIO_NUM_13, 1); // Blue
+                    gpio_set_level(GPIO_NUM_14, 1); // Red
+                    genre = 5;
+                    break;
+                case GPIO_INPUT_IO_6:
+                    gpio_set_level(GPIO_NUM_15, 1); // Green
+                    gpio_set_level(GPIO_NUM_13, 1); // Blue
+                    gpio_set_level(GPIO_NUM_14, 1); // Red
+                    genre = 6;
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+}
+
 void app_main()
 {
-    genre = getGenre(); //must come first due to ADC issus conflicting with wifi
+
+    // GPIO Interupts
+    if (config.mesh_type != MESH_ROOT) {
+        gpio_config_t io_conf;
+        //interrupt of rising edge
+        io_conf.intr_type = GPIO_PIN_INTR_POSEDGE;
+        //bit mask of the pins, use GPIO4/5 here
+        io_conf.pin_bit_mask = GPIO_INPUT_PIN_SEL;
+        //set as input mode    
+        io_conf.mode = GPIO_MODE_INPUT;
+        //enable pull-up mode
+        io_conf.pull_up_en = 1;
+        gpio_config(&io_conf);
+
+        //change gpio intrrupt type for one pin
+        //gpio_set_intr_type(GPIO_INPUT_IO_0, GPIO_INTR_POSEDGE);
+
+        //create a queue to handle gpio event from isr
+        gpio_evt_queue = xQueueCreate(10, sizeof(uint32_t));
+        //start gpio task
+        xTaskCreate(gpio_task_example, "gpio_task_example", 2048, NULL, 10, NULL);
+
+        //install gpio isr service
+        gpio_install_isr_service(ESP_INTR_FLAG_DEFAULT);
+
+        //hook isr handler for specific gpio pin
+        gpio_isr_handler_add(GPIO_INPUT_IO_0, gpio_isr_handler, (void*) GPIO_INPUT_IO_0);
+        //hook isr handler for specific gpio pin
+        gpio_isr_handler_add(GPIO_INPUT_IO_1, gpio_isr_handler, (void*) GPIO_INPUT_IO_1);
+        //hook isr handler for specific gpio pin
+        gpio_isr_handler_add(GPIO_INPUT_IO_2, gpio_isr_handler, (void*) GPIO_INPUT_IO_2);
+        //hook isr handler for specific gpio pin
+        gpio_isr_handler_add(GPIO_INPUT_IO_3, gpio_isr_handler, (void*) GPIO_INPUT_IO_3);
+        //hook isr handler for specific gpio pin
+        gpio_isr_handler_add(GPIO_INPUT_IO_4, gpio_isr_handler, (void*) GPIO_INPUT_IO_4);
+        //hook isr handler for specific gpio pin
+        gpio_isr_handler_add(GPIO_INPUT_IO_5, gpio_isr_handler, (void*) GPIO_INPUT_IO_5);
+        //hook isr handler for specific gpio pin
+        gpio_isr_handler_add(GPIO_INPUT_IO_6, gpio_isr_handler, (void*) GPIO_INPUT_IO_6);
+    }
+
     
     mwifi_init_config_t cfg = MWIFI_INIT_CONFIG_DEFAULT();
     mwifi_config_t config   = {
