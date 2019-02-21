@@ -95,9 +95,10 @@ def play_loop(sc):
     currentContext = spotify.current_playback()['context']
     print(json.dumps(currentContext, indent=2)) 
     if currentContext is None:
-        spotify.start_playback(context_uri=playlist['uri'],offset={"uri":queueSong(getSuggestions())})
+        spotify.start_playback(context_uri=playlist['uri'],offset={"uri":latestTrack})
     if((currentTrack['item']['duration_ms'] - currentTrack['progress_ms']) < (30 * 1000)):
         print("Reading Network File...")
+        global latestTrack
         latestTrack = queueSong(getSuggestions())
         print(latestTrack)
     s.enter(5, 1, play_loop, (sc,))
