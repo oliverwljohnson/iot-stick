@@ -12,24 +12,37 @@ As you can see there are two moving parts in the system. The glowstick and the c
   2. The Controller ->  The part that collects all the data and then chooses which songs to play
 
 ## Bill of Materials
+
+The descriptions in parenthesis are what we used to build/develop the system.
+
 __Controller__
+
 The controller makes use of an ESP32 as its root node which has a UART connection to talk to a Raspberry Pi which then does all the API interactions
-  -
-  -
-  -
-  -
-  -
+
+![controller_parts](/pics/controller.png)
+
+  - Raspberry Pi (3B+)
+  - A power source (USB to Micro-USB)
+  - HDMI Cable to connect Pi to screen
+  - A screen
+  - USB Mouse & Keyboard
+  - A connection to a sound system (3.5mm Aux cord)
+  - 3 wires with Male-Female headers
+
+  - An ESP32 board (ESP DevKit-C)
+  - A power source (USB to Micro-USB)
 
 __A Glowstick Node__
+
 ESP-Mesh supports up to [1000 nodes](https://www.espressif.com/en/products/software/esp-mesh/overview). But to get your party started here are the materials needed for one individual node:
-  - 
-  - 
-  - 
-  - 
-  - 
+  - ESP32 (ESP DevKit-C)
+  - A power source (USB Powerpack)
+  - ?
+  - ?
+  - ?
 
 ## Installation Instructions
-Individual instructions on how to install and wire pieces together can be found in the `mesh` and `player` folders. There you will also find what hardware you need for each Controller and Glowstick.
+Individual instructions on how to install and wire pieces together can be found in the `mesh` and `player` folders. It also outlines the software environment needed to develop 
 
 ## Development History
 Take a look at [Oliver's](https://cs.anu.edu.au/courses/china-study-tour/news/#oliver-johnson) and [David's](https://cs.anu.edu.au/courses/china-study-tour/news/#david-horsley) blogs. However we do want to point out some of the architectuaral and design choices we've made.
