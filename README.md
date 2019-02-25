@@ -1,19 +1,21 @@
-# iot-stick
-Decide on what set to play by wearing a Glowstick, powered by ESP Mesh. 
+# SoundOut
+SoundOut is a social music system that makes music more democratic, more social, and more fun. Powered by ESP-mesh, SoundOut allows everyone to have their voice heard by selecting their favourite genre on a wearable smart glowstick, and broadcast their choice to the world by changing the colour of the glowstick to match your chosen genre.
+
+Whether it's for a club, a party, or anything else, SoundOut hopes to change the way we interact with music and with eachother. 
 
 ### Use Case
-Give everyone at a party or club one of these glowsticks. On each glowstick is a knob to select what genre they're feeling. Each of these glowsticks are networked via ESP Mesh. The controller or `Root` node takes a snapshot and uses that data to communicate with the Spotify API to give reccomendations and then automatically play them.
+Everyone at a party or club is given a smart glowstick, on which they can select what genre they feel like hearing simply by turning a knob. The glowsticks communicate using ESP-mesh, and the controller or `Root` node takes a snapshot and uses that data to communicate with the Spotify API to give reccomendations and play them.
 
-The idea of the project is to make music choice more democratic. It give people a bit more control over what they want to here.
+The idea of the project is to make music choice more democratic, take control back from DJs and speaker-hogs, and to create interactions between people as they learn more about the people around them and their taste in music.
 
 ### Overview
 ![schematic](pics/schematic.png)
 
-As you can see there are two moving parts in the system. The glowstick and the controller.
+As you can see there are two main parts in the system, the glowstick and the controller.
   1. The Glowstick -> The part that has all the LEDs connected and that you wear around your neck
   2. The Controller ->  The part that collects all the data and then chooses which songs to play
 
-## Bill of Materials
+## List of Materials
 
 The descriptions in parenthesis are what we used to build/develop the system.
 
@@ -37,12 +39,14 @@ The controller makes use of an ESP32 as its root node which has a UART connectio
 __A Glowstick Node__
 
 ESP-Mesh supports up to [1000 nodes](https://www.espressif.com/en/products/software/esp-mesh/overview). But to get your party started here are the materials needed for one individual node:
-  - ESP32 (ESP DevKit-C)
-  - A power source (USB Powerpack)
-  - ?
-  - ?
-  - ?
-
+  - An ESP32 DevKit. Both the ESP DevKit-C and the NodeMCU ESP-32S worked for us.
+  - A power source for the LEDs, ideally at 12v but 9v works too, although it won't be a bright as 12v.
+  - A power source for the ESP32. We powered it over USB, using either a USB battery bank, or the 9v battery (but it must be stepped down to the correct volatage!). 
+  - A "dumb" (non-addressable) strip of RGB LEDs. We used 4 segments of about 10cm each on our prototype.
+  - 3 N-Channel MOSFETs – we used STMicroelectronics P16NF06N-Ch 60 Volt 16 Amp MOSFETs, but any MOSFET in a TO-220 package should work. One is needed for each channel (R/G/B) of the LED strips. 
+  - A rotary switch; to select the genre. The number of positions should be at least as many as the number of genres you want (our prototype has 6 genres).
+  
+  
 ## Installation Instructions
 Individual instructions on how to install and wire pieces together can be found in the `mesh` and `player` folders. It also outlines the software environment needed to develop 
 
