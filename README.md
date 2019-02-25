@@ -4,6 +4,8 @@ Decide on what set to play by wearing a Glowstick, powered by ESP Mesh.
 ### Use Case
 Give everyone at a party or club one of these glowsticks. On each glowstick is a knob to select what genre they're feeling. Each of these glowsticks are networked via ESP Mesh. The controller or `Root` node takes a snapshot and uses that data to communicate with the Spotify API to give reccomendations and then automatically play them.
 
+The idea of the project is to make music choice more democratic. It give people a bit more control over what they want to here.
+
 ### Overview
 ![schematic](pics/schematic.png)
 
@@ -45,12 +47,11 @@ ESP-Mesh supports up to [1000 nodes](https://www.espressif.com/en/products/softw
 Individual instructions on how to install and wire pieces together can be found in the `mesh` and `player` folders. It also outlines the software environment needed to develop 
 
 ## Development History
-Take a look at [Oliver's](https://cs.anu.edu.au/courses/china-study-tour/news/#oliver-johnson) and [David's](https://cs.anu.edu.au/courses/china-study-tour/news/#david-horsley) blogs. However we do want to point out some of the architectuaral and design choices we've made.
+Take a look at [Oliver's](https://cs.anu.edu.au/courses/china-study-tour/news/#oliver-johnson) and [David's](https://cs.anu.edu.au/courses/china-study-tour/news/#david-horsley) blogs. There you'll find answers to questions such as _"Why did we choose ESP-IDF over Arduino?"_ and _"Why we decided to use ESP-Mesh (Wifi) instead of BLE Mesh?"_
 
-#### ESP-IDF over Arduino
+At the moment our prototype isn't incredible robust. If you want to get involved try extending the nodes to use extra genres, or implement a bit of data visualisation. We've got the foundations in the code but it would be really intersting to try and make it more "plug and play"
 
-#### ESP-Mesh over BLE Mesh
-
+Fork a copy, raise an issue or a pull request and we can take it from there.
 
 ## If you're stuck...
 We're very happy to help you out as much as possible, but the best thing that you can do is have a look at some of the resources that we used to develop the system:
@@ -62,5 +63,6 @@ We're very happy to help you out as much as possible, but the best thing that yo
   - [Librespot](https://github.com/librespot-org/librespot)
 
 You can also contact us through email and we'll try to get back to you:
+
 Oliver: u6406755(at)anu.edu.au
 David:  u6(at)anu.edu.au

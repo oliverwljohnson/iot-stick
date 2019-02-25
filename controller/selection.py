@@ -10,12 +10,11 @@ from collections import Counter
 import random
 
 
-SPOTIPY_CLIENT_ID ='2722912b2a164140bc1ba1919913f5cd'
-SPOTIPY_CLIENT_SECRET ='49929317ad3e4d0a87624f29525acd43'
-SPOTIPY_REDIRECT_URI ='http://localhost:8888'
-REFRESH_TOKEN = 'AQCzdqLIGDRJKyZdGybmxW2Ba9tg1OE0SL1gvLRHwNTxwdzFmybQt3rc8jB-NmplleDs583k2BmwoH2NwvMTtHC_gev54D6a0tB7kK6Sl9LCW4G7NeezXjCNpPvP6NEK-bgiLw'
+SPOTIPY_CLIENT_ID ='<Your_Client_ID>'
+SPOTIPY_CLIENT_SECRET ='<Your_Client_Secret>'
+SPOTIPY_REDIRECT_URI ='<Your_Redirect_URI>'
 scope = 'user-read-private user-read-email playlist-modify-private playlist-modify-public playlist-read-collaborative user-modify-playback-state user-read-currently-playing user-read-playback-state user-top-read user-read-recently-played app-remote-control streaming user-read-email user-follow-read user-follow-modify user-library-modify user-library-read'
-username = "oliver.johnson1998@gmail.com"
+username = "<Your_Spotify_Username>"
 spotify = spotipy.Spotify
 player_name = "Pi Radio"
 
