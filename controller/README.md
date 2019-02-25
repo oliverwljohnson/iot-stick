@@ -48,6 +48,10 @@ Then call the selection algorithm.
 python3 selection.py
 ```
 
+#### Spotify Application
+
+To use the `selection.py` script you must replace `CLIENT_ID`, `CLIENT_SECRET` and `CALLBACK_URI` with those generated from a new spotify application. To create a new spotify application [follow these instructions](https://developer.spotify.com/documentation/general/guides/app-settings/). Note that the Callback can just be a `localhost`.
+
 The first time you call it with a new username it will redirect you to a spotify permissions page. After logging in with your credentials copy the web address and enter it into the terminal as prompted.
 
 Unless you delete your cache, or use another username you should not have to log in again, instead using your Refresh Token to be granted another Access Token.
