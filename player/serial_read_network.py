@@ -20,7 +20,7 @@ def readUART():
     counter=0
     time.sleep(1)
     #
-    while (counter < 10):
+    while (1):
         x=ser.readline().decode('utf-8')
         print(str.isdigit(x))
         print(x)
