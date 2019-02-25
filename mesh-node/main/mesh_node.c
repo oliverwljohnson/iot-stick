@@ -24,13 +24,6 @@
 
 #include "mdf_common.h"
 #include "mwifi.h"
-
-/* UART asynchronous example, that uses separate RX and TX tasks
-   This example code is in the Public Domain (or CC0 licensed, at your option.)
-   Unless required by applicable law or agreed to in writing, this
-   software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
-   CONDITIONS OF ANY KIND, either express or implied.
-*/
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "esp_system.h"
@@ -38,28 +31,15 @@
 #include "driver/uart.h"
 #include "soc/uart_struct.h"
 #include "string.h"
-
-// Interupts
 #include <string.h>
 #include "freertos/queue.h"
 #include "driver/gpio.h"
-
-/*
-   ANALOG READER
-*/
 #include <stdio.h>
 #include <stdlib.h>
 #include "driver/gpio.h"
 #include "driver/adc.h"
 #include "esp_adc_cal.h"
 // #define MEMORY_DEBUG
-
-/* ADC1 Example
-   This example code is in the Public Domain (or CC0 licensed, at your option.)
-   Unless required by applicable law or agreed to in writing, this
-   software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
-   CONDITIONS OF ANY KIND, either express or implied.
-*/
 
 static const char *TAG = "mesh_node";
 #define DEFAULT_VREF    1100        //Use adc2_vref_to_gpio() to obtain a better estimate
@@ -104,53 +84,6 @@ static void print_char_val_type(esp_adc_cal_value_t val_type)
     } else {
         printf("Characterized using Default Vref\n");
     }
-}
-
-// Use this function to get genre from the pin on the board
-static uint32_t getGenre()
-{
-    
-     //Check if Two Point or Vref are burned into eFuse
-    check_efuse();
-
-    //Configure ADC
-    if (unit == ADC_UNIT_1) {
-        adc1_config_width(ADC_WIDTH_BIT_12);
-        adc1_config_channel_atten(channel, atten);
-    } else {
-        adc2_config_channel_atten((adc2_channel_t)channel, atten);
-    }
-
-    //Characterize ADC
-    adc_chars = calloc(1, sizeof(esp_adc_cal_characteristics_t));
-    esp_adc_cal_value_t val_type = esp_adc_cal_characterize(unit, atten, ADC_WIDTH_BIT_12, DEFAULT_VREF, adc_chars);
-    print_char_val_type(val_type);
-
-    //Continuously sample ADC1
-    uint32_t adc_reading = 0;
-    adc_reading = 0;
-    //Multisampling
-    for (int i = 0; i < NO_OF_SAMPLES; i++) {
-        if (unit == ADC_UNIT_1) {
-            adc_reading += adc1_get_raw((adc1_channel_t)channel);
-        } else {
-            int raw;
-            adc2_get_raw((adc2_channel_t)channel, ADC_WIDTH_BIT_12, &raw);
-            adc_reading += raw;
-        }
-    }
-    adc_reading /= NO_OF_SAMPLES;
-    //Convert adc_reading to voltage in mV
-    uint32_t voltage = esp_adc_cal_raw_to_voltage(adc_reading, adc_chars);
-    printf("Raw: %d\tVoltage: %dmV\n", adc_reading, voltage);
-    //vTaskDelay(pdMS_TO_TICKS(1000));
-   /*
-   if (adc_reading <= 1*(4095 / NO_OF_GENRES)){
-      g
-   };
-   */
-   
-    return adc_reading /= (4095 / NO_OF_GENRES);
 }
 
 /*
@@ -218,7 +151,6 @@ static void root_task(void *arg)
         sendData(TX_TASK_TAG,data);
         vTaskDelay(2000 / portTICK_PERIOD_MS);
 
-        //uint32_t genre = getGenre();
         size = sprintf(data, "Root Received Message");
         ret = mwifi_root_write(src_addr, 1, &data_type, data, size, true);
         MDF_ERROR_CONTINUE(ret != MDF_OK, "mwifi_root_recv, ret: %x", ret);
@@ -316,11 +248,6 @@ static void print_system_info_timercb(void *timer)
         MDF_LOGI("Child mac: " MACSTR, MAC2STR(wifi_sta_list.sta[i].mac));
     }
 
-    /*if(config.mesh_type != MESH_ROOT) {
-        MDF_LOGI("This node is resetting, need to update Genre");
-        esp_restart();
-    }*/
-
 #ifdef MEMORY_DEBUG
     if (!heap_caps_check_integrity_all(true)) {
         MDF_LOGE("At least one heap is corrupt");
@@ -388,6 +315,9 @@ static mdf_err_t wifi_init()
 
     return MDF_OK;
 }
+
+/* Interrupt Definitions and handlers
+*/
 
 #define GPIO_INPUT_IO_0     16
 #define GPIO_INPUT_IO_1     17
